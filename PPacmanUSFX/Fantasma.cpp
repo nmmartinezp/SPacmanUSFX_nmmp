@@ -26,10 +26,9 @@ void Fantasma::move()
 
 	if (posicionX >= posicionXDestino) {
 		if (posicionY >= posicionYDestino) {
-
 			posicionXDestino = 1 + rand() % anchoPantalla;
 			posicionYDestino = 1 + rand() % altoPantalla;
-
+			
 			if (posicionX > posicionXDestino) {
 				incrementoPosicionX = -1;
 			}
@@ -56,7 +55,8 @@ void Fantasma::move()
 			if ((posicionY < 0) || (posicionY + alto > altoPantalla))
 			{
 				// Mover fantasma atras
-				posicionY -= velocidadY;
+				posicionXDestino = 1 + rand() % anchoPantalla;
+				posicionYDestino = 1 + rand() % altoPantalla;
 			}
 		}
 	}
@@ -70,7 +70,8 @@ void Fantasma::move()
 		if ((posicionX < 0) || (posicionX + ancho > anchoPantalla))
 		{
 			// Mover fantasma atras
-			posicionX -= velocidadX;
+			posicionXDestino = 1 + rand() % anchoPantalla;
+			posicionYDestino = 1 + rand() % altoPantalla;
 		}
 	}
 
