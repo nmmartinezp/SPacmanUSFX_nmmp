@@ -25,6 +25,8 @@ int GameManager::onExecute() {
 	//fantasma = new Fantasma();
 	//fantasma = new Fantasma(SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4, SCREEN_WIDTH, SCREEN_HEIGHT, 7);
 	fantasma = new Fantasma(gWindow, gRenderer, gScreenSurface, gFantasmaTexture, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	fantasma2 = new Fantasma2(gWindow, gRenderer, gScreenSurface, gFantasma2Texture, 0, 45, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	fantasma3 = new Fantasma3(gWindow, gRenderer, gScreenSurface, gFantasma3Texture, 0, 85, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	fruta = new Fruta(gWindow, gRenderer, gScreenSurface, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
 	srand(time(NULL));
 
@@ -41,6 +43,12 @@ int GameManager::onExecute() {
 		// Mover Fantasma
 		fantasma->move();
 		
+		// Mover Fantasma2
+		fantasma2->move();
+
+		// Mover Fantasma3
+		fantasma3->move();
+
 		fruta->mostrar();
 		//Clear screen
 		SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
@@ -111,15 +119,29 @@ bool GameManager::onInit() {
 				success = false;
 			}
 
+			gFantasma2Texture = loadTexture("Resources/Fantasma2.bmp");
+			if (gFantasma2Texture == NULL)
+			{
+				cout << "Fallo en la carga de la textura aqui" << endl;
+				success = false;
+			}
+
+			gFantasma3Texture = loadTexture("Resources/Fantasma3.bmp");
+			if (gFantasma3Texture == NULL)
+			{
+				cout << "Fallo en la carga de la textura aqui" << endl;
+				success = false;
+			}
+
 			if ((gFrutasTextures[0] = loadTexture("Resources/Fruta01.png")) == NULL) {
 				cout << "Fallo en la carga de la textura aqui" << endl;
 				return false;
 			}
-			if ((gFrutasTextures[1] = loadTexture("Resources/Fruta02.png")) == NULL) {
+			if ((gFrutasTextures[1] = loadTexture("Resources/Fruta03.png")) == NULL) {
 				cout << "Fallo en la carga de la textura aqui" << endl;
 				return false;
 			}
-			if ((gFrutasTextures[2] = loadTexture("Resources/Fruta03.png")) == NULL) {
+			if ((gFrutasTextures[2] = loadTexture("Resources/Fruta02.png")) == NULL) {
 				cout << "Fallo en la carga de la textura aqui" << endl;
 				return false;
 			}
@@ -144,6 +166,8 @@ void GameManager::onLoop() {};
 void GameManager::onRender() {
 	pacman->render();
 	fantasma->render();
+	fantasma2->render();
+	fantasma3->render();
 	fruta->render();
 };
 

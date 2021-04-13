@@ -9,6 +9,8 @@
 
 #include "Pacman.h"
 #include "Fantasma.h"
+#include "Fantasma2.h"
+#include "Fantasma3.h"
 #include "Fruta.h"
 
 using namespace std;
@@ -35,6 +37,8 @@ private:
     //The images we will load and show on the screen
     SDL_Texture* gPacmanTexture;
     SDL_Texture* gFantasmaTexture;
+    SDL_Texture* gFantasma2Texture;
+    SDL_Texture* gFantasma3Texture;
     SDL_Texture* gFrutasTextures[3];
     /*
     SDL_Texture* gFruta01Texture;
@@ -46,6 +50,8 @@ private:
 public:
     Pacman* pacman;
     Fantasma* fantasma;
+    Fantasma2* fantasma2;
+    Fantasma3* fantasma3;
     Fruta* fruta;
 
 public:
