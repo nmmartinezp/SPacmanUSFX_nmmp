@@ -44,13 +44,13 @@ public:
 	SDL_Surface* screenSurface = nullptr;
 
 	// Array de las texturas de las diferentes frutas;
-	SDL_Texture* frutasTextures[3];
+	SDL_Texture* frutasTextures[4];
 
 
 public:
 	//Constructores y destructores
 	Fruta();
-	Fruta(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _frutasTextures[3], int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla);
+	Fruta(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _frutasTextures[4], int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla);
 	//~Fruta();
 
 	//Metodos accesores
