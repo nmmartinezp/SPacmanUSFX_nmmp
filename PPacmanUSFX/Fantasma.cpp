@@ -5,16 +5,20 @@ using namespace std;
 
 Fantasma::Fantasma(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
 {
-	// Inicializa propiedade de de pacman
-	posicionX = _posicionX;
-	posicionY = _posicionY;
+	// Inicializa propiedades del fantasma
 	velocidadX = 0;
 	velocidadY = 0;
-	velocidadPatron = _velocidadPatron;
 	ancho = 25;
 	alto = 25;
+
+	posicionX = _posicionX;
+	posicionY = _posicionY;
+	
+	velocidadPatron = _velocidadPatron;
+	
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
+
 	window = _window;
 	renderer = _renderer;
 	screenSurface = _screenSurface;

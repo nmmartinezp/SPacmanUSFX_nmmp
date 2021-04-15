@@ -46,8 +46,7 @@ private:
 public:
 	//Constructores y destructores
 	Fantasma(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-	//~Fantasma();
-	
+
 	//Metodos accesores
 
 	int getPosicionX() { return posicionX; }
@@ -72,10 +71,7 @@ public:
 
 	
 	// Metodos varios
-		
-	// Manejador de eventos del fantasma
-	//void handleEvent(SDL_Event& e);
-	
+
 	// Mover fantasma
 	void move();
 	// Renderizar imagen fantasma

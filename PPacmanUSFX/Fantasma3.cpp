@@ -5,16 +5,20 @@ using namespace std;
 
 Fantasma3::Fantasma3(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _fantasma3Texture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
 {
-	// Inicializa propiedade de de pacman
-	posicionX = _posicionX;
-	posicionY = _posicionY;
+	// Inicializa propiedade del fantasma3
 	velocidadX = 0;
 	velocidadY = 0;
-	velocidadPatron = _velocidadPatron;
 	ancho = 25;
 	alto = 25;
+
+	velocidadPatron = _velocidadPatron;
+
+	posicionX = _posicionX;
+	posicionY = _posicionY;
+
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
+
 	window = _window;
 	renderer = _renderer;
 	screenSurface = _screenSurface;
@@ -54,7 +58,7 @@ void Fantasma3::move()
 			// Verificar si la posicion del fantasma3 no salio de los bordes superior e inferior
 			if ((posicionY < 0) || (posicionY + alto > altoPantalla))
 			{
-				// Mover fantasma atras
+				// Mover fantasma3 atras
 				posicionXDestino = 1 + rand() % anchoPantalla;
 				posicionYDestino = 1 + rand() % altoPantalla;
 			}
@@ -69,7 +73,7 @@ void Fantasma3::move()
 		// Verificar si la posicion del fantasma3 no salio de los bordes izquierdo o derecho
 		if ((posicionX < 0) || (posicionX + ancho > anchoPantalla))
 		{
-			// Mover fantasma atras
+			// Mover fantasma3 atras
 			posicionXDestino = 1 + rand() % anchoPantalla;
 			posicionYDestino = 1 + rand() % altoPantalla;
 		}

@@ -2,7 +2,9 @@
 #include <iostream>
 
 using namespace std;
+
 int cambioDeFruta;
+
 Fruta::Fruta() {
 	posicionX = 50;
 	posicionY = 50;
@@ -23,13 +25,15 @@ Fruta::Fruta() {
 
 Fruta::Fruta(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _frutasTextures[4], int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla)
 {
-	// Inicializa propiedade de de pacman
+	// Inicializa propiedade de la fruta
 	posicionX = _posicionX;
 	posicionY = _posicionY;
-	ancho = 25;
-	alto = 25;
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
+
+	ancho = 25;
+	alto = 25;
+	
 	tipoFruta = TIPO_FRUTA_GUINDA;
 
 	visible = false;
@@ -42,6 +46,7 @@ Fruta::Fruta(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenS
 	window = _window;
 	renderer = _renderer;
 	screenSurface = _screenSurface;
+
 	for (int i = 0; i <= 3; i++) {
 		frutasTextures[i] = _frutasTextures[i];
 	}
@@ -53,7 +58,7 @@ void Fruta::mostrar()
 	if (contadorTiempoVisible >= tiempoVisible) {
 		visible = false;
 		if (visible == false) {
-			cambioDeFruta = rand() % 3;
+			cambioDeFruta = rand() % 4;
 		}
 		if (contadorTiempoNoVisible >= tiempoNoVisible) {
 			posicionX = 1 + rand() % anchoPantalla;
@@ -64,7 +69,6 @@ void Fruta::mostrar()
 		}
 		else {
 			contadorTiempoNoVisible++;
-			//contadorTiempoNoVisible = contadorTiempoNoVisible + 1;
 		}
 	}
 	else {

@@ -6,15 +6,19 @@ using namespace std;
 Fantasma2::Fantasma2(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _fantasma2Texture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
 {
 	// Inicializa propiedade del fantasma2
-	posicionX = _posicionX;
-	posicionY = _posicionY;
 	velocidadX = 0;
 	velocidadY = 0;
-	velocidadPatron = _velocidadPatron;
 	ancho = 25;
 	alto = 25;
+
+	velocidadPatron = _velocidadPatron;
+
+	posicionX = _posicionX;
+	posicionY = _posicionY;
+
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
+
 	window = _window;
 	renderer = _renderer;
 	screenSurface = _screenSurface;

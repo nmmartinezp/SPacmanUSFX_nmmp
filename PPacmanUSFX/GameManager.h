@@ -45,7 +45,7 @@ private:
     SDL_Texture* gFantasma3Texture;
     SDL_Texture* gFantasma4Texture;
 
-    SDL_Texture* gFrutasTextures[3];
+    SDL_Texture* gFrutasTextures[4];
  
 public:
     Pacman* pacman;

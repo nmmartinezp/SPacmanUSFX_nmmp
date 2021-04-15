@@ -41,13 +41,12 @@ private:
 	// Superficie grafica del fantasma2;
 	SDL_Surface* fantasma2Surface = nullptr;
 
-	// Textura de la grafica del fantasma
+	// Textura de la grafica del fantasma2
 	SDL_Texture* fantasma2Texture = nullptr;
 
 public:
 	//Constructores y destructores
 	Fantasma2(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _fantasma2Texture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-	//~Fantasma();
 
 	//Metodos accesores
 
@@ -73,9 +72,6 @@ public:
 
 
 	// Metodos varios
-
-	// Manejador de eventos del fantasma2
-	//void handleEvent(SDL_Event& e);
 
 	// Mover fantasma2
 	void move();

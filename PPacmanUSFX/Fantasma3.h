@@ -3,7 +3,7 @@
 
 class Fantasma3 {
 private:
-	//Posicion actual del fantasma en la pantalla
+	//Posicion actual del fantasma3 en la pantalla
 	int posicionX;
 	int posicionY;
 
@@ -46,7 +46,6 @@ private:
 public:
 	//Constructores y destructores
 	Fantasma3(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _fantasma3Texture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
-	//~Fantasma();
 
 	//Metodos accesores
 
@@ -72,9 +71,6 @@ public:
 
 
 	// Metodos varios
-
-	// Manejador de eventos del fantasma
-	//void handleEvent(SDL_Event& e);
 
 	// Mover fantasma3
 	void move();
