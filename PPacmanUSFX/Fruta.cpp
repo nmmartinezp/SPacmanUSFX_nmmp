@@ -3,25 +3,6 @@
 
 using namespace std;
 
-int cambioDeFruta;
-
-Fruta::Fruta() {
-	posicionX = 50;
-	posicionY = 50;
-	ancho = 20;
-	alto = 20;
-	anchoPantalla = 640;
-	altoPantalla = 480;
-
-	tipoFruta = TIPO_FRUTA_GUINDA;
-
-	visible = false;
-
-	tiempoVisible = 100;
-	tiempoNoVisible = 150;
-	contadorTiempoVisible = 0;
-	contadorTiempoNoVisible = 0;
-}
 
 Fruta::Fruta(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _frutasTextures[4], int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla)
 {
@@ -42,6 +23,7 @@ Fruta::Fruta(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenS
 	tiempoNoVisible = 150;
 	contadorTiempoVisible = 0;
 	contadorTiempoNoVisible = 0;
+	cambioDeFruta = 0;
 
 	window = _window;
 	renderer = _renderer;

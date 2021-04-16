@@ -25,6 +25,8 @@ private:
 	int altoPantalla;
 
 	TIPO_FRUTA tipoFruta;
+
+	int cambioDeFruta;
 	
 	bool visible;
 	int tiempoVisible;
@@ -49,7 +51,6 @@ public:
 
 public:
 	//Constructores y destructores
-	Fruta();
 	Fruta(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _frutasTextures[4], int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla);
 	//~Fruta();
 

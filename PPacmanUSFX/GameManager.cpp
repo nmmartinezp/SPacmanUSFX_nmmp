@@ -10,7 +10,6 @@ GameManager::GameManager() {
 
 	juego_en_ejecucion = true;
 	
-	fruta = new Fruta();
 }
 
 int GameManager::onExecute() {
