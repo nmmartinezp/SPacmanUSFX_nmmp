@@ -30,8 +30,8 @@ void Fantasma2::move()
 
 	if (posicionX >= posicionXDestino) {
 		if (posicionY >= posicionYDestino) {
-			posicionXDestino = 1 + rand() % anchoPantalla;
-			posicionYDestino = 1 + rand() % altoPantalla;
+			posicionXDestino = rand() % anchoPantalla + 1;
+			posicionYDestino = rand() % altoPantalla + 1;
 
 			if (posicionX > posicionXDestino) {
 				incrementoPosicionX = -1;
@@ -48,19 +48,32 @@ void Fantasma2::move()
 			{
 				incrementoPosicionY = 1;
 			}
+
+			// Verificar si la posicion del fantasma2 no salio de los bordes superior e inferior
+			if ((posicionY < 0) || (posicionY + alto> altoPantalla))
+			{
+				// Mover fantasma2 atras
+				posicionY -= velocidadY;
+			}
+
+			// Verificar si la posicion del fantasma2 no salio de los bordes izquierdo o derecho
+			if ((posicionX < 0) || (posicionX + ancho > anchoPantalla))
+			{
+				// Mover fantasma2 atras
+				posicionX -= velocidadX;
+			}
 		}
 		else {
 			posicionY = posicionY + incrementoPosicionY;
 
 			// Mover el fantasma2 arriba o abajo
-			posicionY += velocidadY;
+			//posicionY += velocidadY;
 
 			// Verificar si la posicion del fantasma2 no salio de los bordes superior e inferior
 			if ((posicionY < 0) || (posicionY + alto > altoPantalla))
 			{
 				// Mover fantasma2 atras
-				posicionXDestino = 1 + rand() % anchoPantalla;
-				posicionYDestino = 1 + rand() % altoPantalla;
+				posicionY -= velocidadY;
 			}
 		}
 	}
@@ -68,14 +81,13 @@ void Fantasma2::move()
 		posicionX = posicionX + incrementoPosicionX;
 
 		// Mover el fantasma2 a la izquierda o derecha
-		posicionX += velocidadX;
+		//posicionX += velocidadX;
 
 		// Verificar si la posicion del fantasma2 no salio de los bordes izquierdo o derecho
 		if ((posicionX < 0) || (posicionX + ancho > anchoPantalla))
 		{
 			// Mover fantasma2 atras
-			posicionXDestino = 1 + rand() % anchoPantalla;
-			posicionYDestino = 1 + rand() % altoPantalla;
+			posicionX -= velocidadX;
 		}
 	}
 
