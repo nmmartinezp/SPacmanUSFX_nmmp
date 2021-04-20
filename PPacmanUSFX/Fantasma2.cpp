@@ -41,7 +41,7 @@ void Fantasma2::move()
 				incrementoPosicionX = 1;
 			}
 
-			if (posicionY > posicionXDestino) {
+			if (posicionY > posicionYDestino) {
 				incrementoPosicionY = -1;
 			}
 			else
