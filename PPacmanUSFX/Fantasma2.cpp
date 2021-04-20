@@ -28,8 +28,8 @@ Fantasma2::Fantasma2(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* 
 void Fantasma2::move()
 {
 
-	if (posicionX >= posicionXDestino) {
-		if (posicionY >= posicionYDestino) {
+	if (posicionX >= posicionXDestino || posicionX + ancho > anchoPantalla || posicionX < 0) {
+		if (posicionY >= posicionYDestino || posicionY + alto > altoPantalla || posicionY < 0) {
 			posicionXDestino = rand() % anchoPantalla + 1;
 			posicionYDestino = rand() % altoPantalla + 1;
 
