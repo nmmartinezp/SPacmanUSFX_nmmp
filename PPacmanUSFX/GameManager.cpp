@@ -7,6 +7,7 @@ GameManager::GameManager() {
 	gRenderer = nullptr;
 	gScreenSurface = nullptr;
 	gPacmanTexture = nullptr;
+	gFantasmaTexture = nullptr;
 
 	juego_en_ejecucion = true;
 	
@@ -18,7 +19,7 @@ int GameManager::onExecute() {
     }
 
 	pacman = new Pacman(gWindow, gRenderer, gScreenSurface, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	fantasma = new Fantasma(gWindow, gRenderer, gScreenSurface, gFantasmaTexture, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	fantasma = new Fantasma(fantasmaTexture, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	fantasma2 = new Fantasma2(gWindow, gRenderer, gScreenSurface, gFantasma2Texture, 0, 45, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	fantasma3 = new Fantasma3(gWindow, gRenderer, gScreenSurface, gFantasma3Texture, 0, 85, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	fantasma4 = new Fantasma4(gWindow, gRenderer, gScreenSurface, gFantasma4Texture, 0, 125, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
@@ -112,12 +113,10 @@ bool GameManager::onInit() {
 				success = false;
 			}
 
-			gFantasmaTexture = loadTexture("Resources/Fantasma.bmp");
-			if (gFantasmaTexture == NULL)
-			{
-				cout << "Fallo en la carga de la textura aqui" << endl;
-				success = false;
-			}
+			Texture::renderer = gRenderer;
+
+			fantasmaTexture = new Texture();
+			fantasmaTexture->loadFromImage("Resources/Fantasma.bmp");
 
 			gFantasma2Texture = loadTexture("Resources/Fantasma2.bmp");
 			if (gFantasma2Texture == NULL)

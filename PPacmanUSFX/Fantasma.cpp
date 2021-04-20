@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Fantasma::Fantasma(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
+Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
 {
 	// Inicializa propiedades del fantasma
 	velocidadX = 0;
@@ -19,19 +19,20 @@ Fantasma::Fantasma(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _s
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
 
-	window = _window;
-	renderer = _renderer;
-	screenSurface = _screenSurface;
 	fantasmaTexture = _fantasmaTexture;
+
+	numeroAnimacion = 0;
+
 }
 
 void Fantasma::move()
 {
-
+	numeroAnimacion++;
 	if (posicionX >= posicionXDestino) {
 		if (posicionY >= posicionYDestino) {
 			posicionXDestino = 1 + rand() % anchoPantalla;
 			posicionYDestino = 1 + rand() % altoPantalla;
+
 			
 			if (posicionX > posicionXDestino) {
 				incrementoPosicionX = -1;
@@ -59,10 +60,10 @@ void Fantasma::move()
 			if ((posicionY < 0) || (posicionY + alto > altoPantalla))
 			{
 				// Mover fantasma atras
-				posicionXDestino = 1 + rand() % anchoPantalla;
-				posicionYDestino = 1 + rand() % altoPantalla;
+				posicionY = -velocidadY;
 			}
 		}
+
 	}
 	else {
 		posicionX = posicionX + incrementoPosicionX;
@@ -74,17 +75,22 @@ void Fantasma::move()
 		if ((posicionX < 0) || (posicionX + ancho > anchoPantalla))
 		{
 			// Mover fantasma atras
-			posicionXDestino = 1 + rand() % anchoPantalla;
-			posicionYDestino = 1 + rand() % altoPantalla;
+			posicionX = -velocidadX;
 		}
 	}
+	
 
 }
 
 void Fantasma::render()
 {
-	SDL_Rect renderQuad = { posicionX, posicionY, ancho, alto };
+	
+	if (numeroAnimacion >= 4)
+		numeroAnimacion = 0;
+
+
+	SDL_Rect renderQuad = { 25 * numeroAnimacion, 0, ancho, alto };
 
 	//Render to screen
-	SDL_RenderCopyEx(renderer, fantasmaTexture, NULL, &renderQuad, 0.0, NULL, SDL_FLIP_NONE);
+	fantasmaTexture->render( posicionX, posicionY, &renderQuad);
 }

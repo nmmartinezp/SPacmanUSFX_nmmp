@@ -14,6 +14,8 @@
 #include "Fantasma3.h"
 #include "Fantasma4.h"
 
+#include "Texture.h"
+
 #include "Fruta.h"
 
 using namespace std;
@@ -46,6 +48,8 @@ private:
     SDL_Texture* gFantasma4Texture;
 
     SDL_Texture* gFrutasTextures[4];
+
+    Texture* fantasmaTexture = nullptr;
  
 public:
     Pacman* pacman;

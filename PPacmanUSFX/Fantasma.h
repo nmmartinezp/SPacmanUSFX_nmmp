@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL.h>
+#include "Texture.h"
 
 class Fantasma {
 private:
@@ -28,24 +29,23 @@ private:
 	int incrementoPosicionX;
 	int incrementoPosicionY;
 
-	// Ventana en la que se realizara el tratamiento grafico de renderizacion
-	SDL_Window* window = nullptr;
+	int numeroAnimacion;
 
-	// Renderizador de la ventana
-	SDL_Renderer* renderer = nullptr;
+	// Ventana en la que se realizara el tratamiento grafico de renderizacion
+	//SDL_Window* window = nullptr;
 
 	// La superficie grafica (surface) que contiene la ventana
-	SDL_Surface* screenSurface = nullptr;
+	//SDL_Surface* screenSurface = nullptr;
 
 	// Superficie grafica del fantasma;
-	SDL_Surface* fantasmaSurface = nullptr;
+	//SDL_Surface* fantasmaSurface = nullptr;
 
 	// Textura de la grafica del fantasma
-	SDL_Texture* fantasmaTexture = nullptr;
+	Texture* fantasmaTexture = nullptr;
 
 public:
 	//Constructores y destructores
-	Fantasma(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
 	//Metodos accesores
 
