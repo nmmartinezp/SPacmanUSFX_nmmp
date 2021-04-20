@@ -48,20 +48,6 @@ void Fantasma2::move()
 			{
 				incrementoPosicionY = 1;
 			}
-
-			// Verificar si la posicion del fantasma2 no salio de los bordes superior e inferior
-			if ((posicionY < 0) || (posicionY + alto> altoPantalla))
-			{
-				// Mover fantasma2 atras
-				posicionY -= velocidadY;
-			}
-
-			// Verificar si la posicion del fantasma2 no salio de los bordes izquierdo o derecho
-			if ((posicionX < 0) || (posicionX + ancho > anchoPantalla))
-			{
-				// Mover fantasma2 atras
-				posicionX -= velocidadX;
-			}
 		}
 		else {
 			posicionY = posicionY + incrementoPosicionY;
