@@ -22,8 +22,6 @@ protected:
 	int altoPantalla;
 
 	bool visible;
-
-	Texture* texturaObjeto;
 public:
 	static int MakeNumberObjects;
 
@@ -48,7 +46,7 @@ public:
 	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
 	void setVisible(bool _visible) { visible = _visible; }
 
-	virtual void render();
+	void render();
 	virtual void move() {};
 	virtual void update() {};
 	virtual void mostrar() {};

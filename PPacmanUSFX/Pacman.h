@@ -21,13 +21,6 @@ private:
 	// Velocidad a la que mueve el fantasma en cualquier eje
 	int velocidadPatron;
 
-	int numeroFrame;
-	int contadorFrames;
-	const int framesMovimiento = 2;
-
-	int posicionXEnTextura;
-	int posicionYEnTextura;
-
 	Texture* texture;
 
 public:

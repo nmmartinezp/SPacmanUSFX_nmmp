@@ -8,11 +8,6 @@ Pacman::Pacman(Texture* _texture, int _posicionX, int _posicionY, int _ancho, in
 	velocidadY = 0;
 	velocidadPatron = _velocidadPatron;
 	texture = _texture;
-
-	numeroFrame = 0;
-	contadorFrames = 0;
-	posicionXEnTextura = 0;
-	posicionYEnTextura = 0;
 }
 
 
@@ -71,7 +66,7 @@ void Pacman::move()
 void Pacman::render()
 {
 
-	SDL_Rect renderQuad = { posicionXEnTextura + 25 * numeroFrame, posicionYEnTextura, ancho, alto };
+	SDL_Rect renderQuad = { 0, 0, ancho, alto };
 
 	//Render to screen
 	texture->render(posicionX, posicionY, &renderQuad);

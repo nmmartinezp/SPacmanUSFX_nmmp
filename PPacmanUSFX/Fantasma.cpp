@@ -101,10 +101,10 @@ void Fantasma::move()
 void Fantasma::render()
 {
 	
-	SDL_Rect renderQuad = { 25 * numeroFrame, 0, getAncho(), getAlto() };
+	SDL_Rect renderQuad = { 25 * numeroFrame, 0, ancho, alto };
 
 	//Render to screen
-	fantasmaTexture->render( getPosicionX(), getPosicionY(), &renderQuad);
+	fantasmaTexture->render( posicionX, posicionY, &renderQuad);
 }
 
 void Fantasma::update() {

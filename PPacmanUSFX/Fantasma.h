@@ -47,10 +47,10 @@ public:
 	// Various methods
 
 	// Move gosht
-	void move() override;
+	void move();
 	// Render ghost image
-	void render() override;
+	void render();
 
-	void update() override;
+	void update();
 
 };
