@@ -42,7 +42,7 @@ private:
     //The images we will load and show on the screen
     SDL_Texture* gPacmanTexture;
 
-    SDL_Texture* gFantasmaTexture;
+    //SDL_Texture* gFantasmaTexture;
     SDL_Texture* gFantasma2Texture;
     SDL_Texture* gFantasma3Texture;
     SDL_Texture* gFantasma4Texture;

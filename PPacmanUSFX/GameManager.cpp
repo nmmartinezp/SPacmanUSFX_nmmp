@@ -7,7 +7,7 @@ GameManager::GameManager() {
 	gRenderer = nullptr;
 	gScreenSurface = nullptr;
 	gPacmanTexture = nullptr;
-	gFantasmaTexture = nullptr;
+	//gFantasmaTexture = nullptr;
 
 	juego_en_ejecucion = true;
 	
@@ -19,7 +19,7 @@ int GameManager::onExecute() {
     }
 
 	pacman = new Pacman(gWindow, gRenderer, gScreenSurface, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	fantasma = new Fantasma(fantasmaTexture, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	fantasma = new Fantasma(fantasmaTexture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	fantasma2 = new Fantasma2(gWindow, gRenderer, gScreenSurface, gFantasma2Texture, 0, 45, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	fantasma3 = new Fantasma3(gWindow, gRenderer, gScreenSurface, gFantasma3Texture, 0, 85, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	fantasma4 = new Fantasma4(gWindow, gRenderer, gScreenSurface, gFantasma4Texture, 0, 125, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
@@ -171,6 +171,8 @@ void GameManager::onEvent(SDL_Event* Event) {
 void GameManager::onLoop() {};
 void GameManager::onRender() {
 	pacman->render();
+
+	
 	fantasma->render();
 	fantasma2->render();
 	fantasma3->render();

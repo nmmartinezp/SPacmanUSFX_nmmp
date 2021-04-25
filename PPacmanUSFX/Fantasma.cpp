@@ -3,13 +3,14 @@
 
 using namespace std;
 
-Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
+Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
 {
 	// Inicializa propiedades del fantasma
 	velocidadX = 0;
 	velocidadY = 0;
-	ancho = 25;
-	alto = 25;
+
+	ancho = _ancho;
+	alto = _alto;
 
 	posicionX = _posicionX;
 	posicionY = _posicionY;
@@ -21,8 +22,8 @@ Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, in
 
 	fantasmaTexture = _fantasmaTexture;
 
-	numeroAnimacion = 0;
-
+	numeroFrame = 0;
+	contadorFrames = 0;
 }
 
 void Fantasma::move()
@@ -85,12 +86,20 @@ void Fantasma::move()
 void Fantasma::render()
 {
 	
-	if (numeroAnimacion >= 4)
-		numeroAnimacion = 0;
-
-
-	SDL_Rect renderQuad = { 25 * numeroAnimacion, 0, ancho, alto };
+	SDL_Rect renderQuad = { 25 * numeroFrame, 0, getAncho(), getAlto() };
 
 	//Render to screen
-	fantasmaTexture->render( posicionX, posicionY, &renderQuad);
+	fantasmaTexture->render( getPosicionX(), getPosicionY(), &renderQuad);
 }
+
+void Fantasma::update() {
+	contadorFrames++;
+	numeroFrame = contadorFrames / 8;
+
+	if (numeroFrame > framesMovimiento - 1) {
+		numeroFrame = 0;
+		contadorFrames = 0;
+	}
+
+}
+

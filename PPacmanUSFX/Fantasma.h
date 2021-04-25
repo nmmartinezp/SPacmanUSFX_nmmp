@@ -29,8 +29,9 @@ private:
 	int incrementoPosicionX;
 	int incrementoPosicionY;
 
-	int numeroAnimacion;
-
+	int numeroFrame;
+	int contadorFrames;
+	const int framesMovimiento = 4;
 	// Ventana en la que se realizara el tratamiento grafico de renderizacion
 	//SDL_Window* window = nullptr;
 
@@ -45,7 +46,7 @@ private:
 
 public:
 	//Constructores y destructores
-	Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY,int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
 	//Metodos accesores
 
@@ -77,4 +78,5 @@ public:
 	// Renderizar imagen fantasma
 	void render();
 
+	void update();
 };
