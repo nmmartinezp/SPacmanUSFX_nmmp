@@ -37,6 +37,7 @@ int GameManager::onExecute() {
 		pacman->move();
 
 		// Mover Fantasma
+		
 		fantasma->move();
 		
 		// Mover Fantasma2

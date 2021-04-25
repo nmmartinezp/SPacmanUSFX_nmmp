@@ -1,27 +1,20 @@
 #pragma once
 #include <SDL.h>
 #include "Texture.h"
+#include "CommonGameProperties.h"
 
-class Fantasma {
+class Fantasma : public CommonGameProperties{
 private:
-	//Posicion actual del fantasma en la pantalla
-	int posicionX;
-	int posicionY;
 
-	//Velocidad en eje X
+	//Velocity on axis X
 	int velocidadX;
 	
-	//Velocidad en el eje Y
+	//Velocity on axis Y
 	int velocidadY;
 	
-	//Velocidad a la que mueve el fantasma en cualquier eje
+	//gosht Velocity on any axis
 	int velocidadPatron;
 
-	int ancho;
-	int alto;
-
-	int anchoPantalla;
-	int altoPantalla;
 
 	int posicionXDestino;
 	int posicionYDestino;
@@ -32,51 +25,33 @@ private:
 	int numeroFrame;
 	int contadorFrames;
 	const int framesMovimiento = 4;
-	// Ventana en la que se realizara el tratamiento grafico de renderizacion
-	//SDL_Window* window = nullptr;
 
-	// La superficie grafica (surface) que contiene la ventana
-	//SDL_Surface* screenSurface = nullptr;
+	int RandMove;
 
-	// Superficie grafica del fantasma;
-	//SDL_Surface* fantasmaSurface = nullptr;
-
-	// Textura de la grafica del fantasma
 	Texture* fantasmaTexture = nullptr;
 
 public:
-	//Constructores y destructores
+	// Builders and destroyers
 	Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY,int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
-	//Metodos accesores
+	// Accesor Methods 
 
-	int getPosicionX() { return posicionX; }
-	int getPosicionY() { return posicionY; }
 	int getVelocidadX() { return velocidadX; }
 	int getVelocidadY() { return velocidadY; }
 	int getVelocidadPatron() { return velocidadPatron; }
-	int getAncho() { return ancho; }
-	int getAlto() { return alto; }
-	int getAnchoPantalla() { return anchoPantalla; }
-	int getAltoPantalla() { return altoPantalla; }
 
-	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
-	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
 	void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
 	void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
 	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
-	void setAncho(int _ancho) { ancho = _ancho; }
-	void setAlto(int _alto) { alto = _alto; }
-	void setAnchoPantalla(int _anchoPantalla) { anchoPantalla = _anchoPantalla; }
-	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
 
 	
-	// Metodos varios
+	// Various methods
 
-	// Mover fantasma
+	// Move gosht
 	void move();
-	// Renderizar imagen fantasma
+	// Render ghost image
 	void render();
 
 	void update();
+
 };

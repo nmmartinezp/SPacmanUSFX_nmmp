@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CommonGameProperties.cpp" />
     <ClCompile Include="Fantasma.cpp" />
     <ClCompile Include="Fantasma2.cpp" />
     <ClCompile Include="Fantasma3.cpp" />
@@ -30,6 +31,7 @@
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CommonGameProperties.h" />
     <ClInclude Include="Fantasma.h" />
     <ClInclude Include="Fantasma2.h" />
     <ClInclude Include="Fantasma3.h" />
