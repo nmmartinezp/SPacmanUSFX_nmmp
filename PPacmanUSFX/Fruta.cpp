@@ -14,8 +14,6 @@ Fruta::Fruta(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenS
 
 	ancho = 25;
 	alto = 25;
-	
-	tipoFruta = TIPO_FRUTA_GUINDA;
 
 	visible = false;
 
@@ -43,8 +41,8 @@ void Fruta::mostrar()
 			cambioDeFruta = rand() % 4;
 		}
 		if (contadorTiempoNoVisible >= tiempoNoVisible) {
-			posicionX = 1 + rand() % anchoPantalla;
-			posicionY = 1 + rand() % altoPantalla;
+			posicionX = 1 + rand() % (anchoPantalla - ancho);
+			posicionY = 1 + rand() % (altoPantalla - alto);
 			contadorTiempoVisible = 0;
 			contadorTiempoNoVisible = 0;
 			visible = true;

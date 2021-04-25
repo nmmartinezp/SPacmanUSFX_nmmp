@@ -50,6 +50,7 @@ private:
     SDL_Texture* gFrutasTextures[4];
 
     Texture* fantasmaTexture = nullptr;
+    Texture* pacmanTexture = nullptr;
  
 public:
     Pacman* pacman;

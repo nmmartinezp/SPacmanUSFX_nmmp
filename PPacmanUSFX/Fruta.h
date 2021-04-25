@@ -1,16 +1,6 @@
 #pragma once
 #include <SDL.h>
 
-
-enum TIPO_FRUTA {
-	TIPO_FRUTA_GUINDA,
-	TIPO_FRUTA_FRUTILLA,
-	TIPO_FRUTA_NARANJA,
-	TIPO_FRUTA_PLATANO,
-	TIPO_FRUTA_MANZANA
-};
-
-
 class Fruta
 {
 private:
@@ -23,8 +13,6 @@ private:
 
 	int anchoPantalla;
 	int altoPantalla;
-
-	TIPO_FRUTA tipoFruta;
 
 	int cambioDeFruta;
 	
@@ -62,7 +50,6 @@ public:
 	int getAlto() { return alto; }
 	int getAnchoPantalla() { return anchoPantalla; }
 	int getAltoPantalla() { return altoPantalla; }
-	TIPO_FRUTA getTipoFruta() { return tipoFruta; }
 	bool getVisible() { return visible; }
 	int getTiempoVisible() { return tiempoVisible; }
 	int getTiempoNoVisible() { return tiempoNoVisible; }
@@ -73,7 +60,6 @@ public:
 	void setAlto(int _alto) { alto = _alto; }
 	void setAnchoPantalla(int _anchoPantalla) { anchoPantalla = _anchoPantalla; }
 	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
-	void setTipoFruta(TIPO_FRUTA _tipoFruta) { tipoFruta = _tipoFruta; }
 	void setVisible(bool _visible) { visible = _visible; }
 	void setTiempoVisble(int _tiempoVisible) { tiempoVisible = _tiempoVisible; }
 	void setTiempoNoVisble(int _tiempoNoVisible) { tiempoNoVisible = _tiempoNoVisible; }
