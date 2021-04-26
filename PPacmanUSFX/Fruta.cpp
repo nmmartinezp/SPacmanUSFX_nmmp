@@ -3,35 +3,27 @@
 
 using namespace std;
 
-
-Fruta::Fruta(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _frutasTextures[4], int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla)
+Fruta::Fruta(Texture* _frutasTextures[], int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) :
+	CommonGameProperties(_frutasTextures[4], _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
-	// Inicializa propiedade de la fruta
 	posicionX = _posicionX;
 	posicionY = _posicionY;
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
-
-	ancho = 25;
-	alto = 25;
-
-	visible = false;
+	ancho = _ancho;
+	alto = _alto;
+	numeroFrame = 0;
+	
 
 	tiempoVisible = 100;
 	tiempoNoVisible = 150;
 	contadorTiempoVisible = 0;
 	contadorTiempoNoVisible = 0;
-	cambioDeFruta = 0;
 
-	window = _window;
-	renderer = _renderer;
-	screenSurface = _screenSurface;
-
-	for (int i = 0; i <= 3; i++) {
-		frutasTextures[i] = _frutasTextures[i];
-	}
+	visible = false;
+	for (int i = 0; i <= 3; i++) { frutasTextures[i] = _frutasTextures[i]; }
+	
 }
-
 
 void Fruta::mostrar()
 {
@@ -56,11 +48,12 @@ void Fruta::mostrar()
 	}
 }
 
-void Fruta::render()
+void Fruta::renderizar()
 {
 	if (visible) {
-		
-		SDL_Rect renderQuad = { posicionX, posicionY, ancho, alto };
-		SDL_RenderCopyEx(renderer, frutasTextures[cambioDeFruta], nullptr, &renderQuad, 0.0, nullptr, SDL_FLIP_NONE);
+		SDL_Rect renderQuad = { 25 * numeroFrame, 0, ancho, alto };
+
+		//Render to screen
+		frutasTextures[cambioDeFruta]->render(posicionX, posicionY, &renderQuad);
 	}
 }

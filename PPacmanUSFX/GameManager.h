@@ -35,7 +35,7 @@ private:
     //The surface contained by the window
     SDL_Surface* gScreenSurface;
 
-    SDL_Texture* gFrutasTextures[4];
+    Texture* frutasTextures[4];
 
     Texture* fantasmaTexture = nullptr;
     Texture* fantasma1Texture = nullptr;
