@@ -20,8 +20,6 @@ Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, in
 	RandMove = 0;
 }
 
-
-
 void Fantasma::move()
 {
 	if (RandMove == 1) {
@@ -98,23 +96,9 @@ void Fantasma::move()
 	
 }
 
-void Fantasma::render()
-{
-	
-	SDL_Rect renderQuad = { 25 * numeroFrame, 0, ancho, alto };
-
-	//Render to screen
-	ObjectTexture->render( posicionX, posicionY, &renderQuad);
+void Fantasma::renderizar() {
+	//renderizar
+	render(posicionX, posicionY, numeroFrame, ancho, alto);
+	//adaptar
+	update(contadorFrames, numeroFrame, framesMovimiento);
 }
-
-void Fantasma::update() {
-	contadorFrames++;
-	numeroFrame = contadorFrames / 8;
-
-	if (numeroFrame > framesMovimiento - 1) {
-		numeroFrame = 0;
-		contadorFrames = 0;
-	}
-
-}
-

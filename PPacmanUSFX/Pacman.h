@@ -1,9 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
-
 #include <SDL.h>
-//#include "Texture.h"
 #include "CommonGameProperties.h"
 
 
@@ -21,8 +19,7 @@ private:
 	// Velocidad a la que mueve el fantasma en cualquier eje
 	int velocidadPatron;
 
-	//Texture* texture;
-
+	int numeroFrame;
 public:
 	//Constructores y destructores
 	Pacman(Texture* _pacmanTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
@@ -45,8 +42,8 @@ public:
 	void handleEvent(SDL_Event& e);
 	// Mover pacman
 	void move();
-	// Renderizar imagen pacman
-	void render();
+	//render to screen
+	void renderizar();
 
 };
 

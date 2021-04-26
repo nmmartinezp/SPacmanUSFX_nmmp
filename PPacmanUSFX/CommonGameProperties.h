@@ -48,9 +48,13 @@ public:
 	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
 	void setVisible(bool _visible) { visible = _visible; }
 
-	void render();
+	//render de imagen
+	void render(int posicionX, int posicionY, int numeroFrame, int ancho, int alto);
+	//movimiento de objeto
 	virtual void move() {};
-	virtual void update() {};
+	//actualizacion de datos
+	void update(int contadorFrames, int numeroFrame, int framesMovimiento);
+	//visibilidad de objeto
 	virtual void mostrar() {};
 };
 

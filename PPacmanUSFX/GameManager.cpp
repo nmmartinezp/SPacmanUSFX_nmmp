@@ -169,10 +169,10 @@ void GameManager::onEvent(SDL_Event* Event) {
 };
 void GameManager::onLoop() {};
 void GameManager::onRender() {
-	pacman->render();
+	pacman->renderizar();
 
 	
-	fantasma->render();
+	fantasma->renderizar();
 	fantasma2->render();
 	fantasma3->render();
 	fantasma4->render();

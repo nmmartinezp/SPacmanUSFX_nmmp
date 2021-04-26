@@ -8,6 +8,7 @@ Pacman::Pacman(Texture* _pacmanTexture, int _posicionX, int _posicionY, int _anc
 	velocidadY = 0;
 	velocidadPatron = _velocidadPatron;
 	ObjectTexture = _pacmanTexture;
+	numeroFrame = 0;
 }
 
 
@@ -37,7 +38,7 @@ void Pacman::handleEvent(SDL_Event& e)
 		case SDLK_RIGHT: velocidadX -= velocidadPatron; break;
 		}
 	}
-	//move();
+
 }
 
 void Pacman::move()
@@ -63,12 +64,8 @@ void Pacman::move()
 	}
 }
 
-void Pacman::render()
+void Pacman::renderizar()
 {
-
-	SDL_Rect renderQuad = { 0, 0, ancho, alto };
-
-	//Render to screen
-	ObjectTexture->render(posicionX, posicionY, &renderQuad);
+	render(posicionX, posicionY, numeroFrame, ancho, alto);
 }
 
