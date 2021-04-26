@@ -12,8 +12,6 @@ Fruta::Fruta(Texture* _frutasTextures[], int _posicionX, int _posicionY, int _an
 	altoPantalla = _altoPantalla;
 	ancho = _ancho;
 	alto = _alto;
-	numeroFrame = 0;
-	
 
 	tiempoVisible = 100;
 	tiempoNoVisible = 150;
@@ -51,7 +49,7 @@ void Fruta::mostrar()
 void Fruta::renderizar()
 {
 	if (visible) {
-		SDL_Rect renderQuad = { 25 * numeroFrame, 0, ancho, alto };
+		SDL_Rect renderQuad = { 0, 0, ancho, alto };
 
 		//Render to screen
 		frutasTextures[cambioDeFruta]->render(posicionX, posicionY, &renderQuad);

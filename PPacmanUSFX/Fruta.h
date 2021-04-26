@@ -14,7 +14,6 @@ private:
 	int contadorTiempoVisible;
 	int contadorTiempoNoVisible;
 
-	int numeroFrame;
 	Texture* frutasTextures[4];
 public:
 
