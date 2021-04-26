@@ -1,3 +1,5 @@
+
+//CLASE HIJA DE COMMONGAMEPROPERTIES
 #pragma once
 #include <iostream>
 #include <string>

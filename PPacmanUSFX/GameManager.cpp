@@ -94,11 +94,8 @@ bool GameManager::onInit() {
 				SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 			}
 
-
 			//Get window surface
 			gScreenSurface = SDL_GetWindowSurface(gWindow);
-
-
 
 			Texture::renderer = gRenderer;
 

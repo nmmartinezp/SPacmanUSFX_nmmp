@@ -1,3 +1,5 @@
+
+//CLASE PADRE DE LOS ACTORES DE JUEGO
 #pragma once
 #include <iostream>
 #include <string>
