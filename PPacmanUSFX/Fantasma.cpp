@@ -4,7 +4,7 @@
 using namespace std;
 
 Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-	CommonGameProperties(_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+	CommonGameProperties( _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
 	//start properties
 	velocidadX = 1;

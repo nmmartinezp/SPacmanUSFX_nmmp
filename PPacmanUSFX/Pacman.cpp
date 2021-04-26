@@ -2,7 +2,7 @@
 #include "Pacman.h"
 
 
-Pacman::Pacman(Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) : 
+Pacman::Pacman(Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
 	CommonGameProperties(_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla) {
 	velocidadX = 0;
 	velocidadY = 0;
