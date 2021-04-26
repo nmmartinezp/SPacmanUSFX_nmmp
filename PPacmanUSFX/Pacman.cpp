@@ -2,12 +2,12 @@
 #include "Pacman.h"
 
 
-Pacman::Pacman(Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-	CommonGameProperties(_posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla) {
+Pacman::Pacman(Texture* _pacmanTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
+	CommonGameProperties(_pacmanTexture, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla) {
 	velocidadX = 0;
 	velocidadY = 0;
 	velocidadPatron = _velocidadPatron;
-	texture = _texture;
+	ObjectTexture = _pacmanTexture;
 }
 
 
@@ -69,6 +69,6 @@ void Pacman::render()
 	SDL_Rect renderQuad = { 0, 0, ancho, alto };
 
 	//Render to screen
-	texture->render(posicionX, posicionY, &renderQuad);
+	ObjectTexture->render(posicionX, posicionY, &renderQuad);
 }
 

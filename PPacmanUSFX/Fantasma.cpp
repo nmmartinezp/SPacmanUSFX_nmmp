@@ -4,7 +4,7 @@
 using namespace std;
 
 Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-	CommonGameProperties( _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+	CommonGameProperties(_fantasmaTexture, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
 	//start properties
 	velocidadX = 1;
@@ -12,7 +12,7 @@ Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, in
 	
 	velocidadPatron = _velocidadPatron;
 
-	fantasmaTexture = _fantasmaTexture;
+	ObjectTexture = _fantasmaTexture;
 
 	numeroFrame = 0;
 	contadorFrames = 0;
@@ -104,7 +104,7 @@ void Fantasma::render()
 	SDL_Rect renderQuad = { 25 * numeroFrame, 0, ancho, alto };
 
 	//Render to screen
-	fantasmaTexture->render( posicionX, posicionY, &renderQuad);
+	ObjectTexture->render( posicionX, posicionY, &renderQuad);
 }
 
 void Fantasma::update() {

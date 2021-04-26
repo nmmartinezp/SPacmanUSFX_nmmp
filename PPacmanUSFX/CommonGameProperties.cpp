@@ -2,7 +2,7 @@
 
 int CommonGameProperties::MakeNumberObjects = 0;
 
-CommonGameProperties::CommonGameProperties(int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) {
+CommonGameProperties::CommonGameProperties(Texture* _ObjectTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) {
 	posicionX = _posicionX;
 	posicionY = _posicionY;
 	ancho = _ancho;
@@ -12,6 +12,7 @@ CommonGameProperties::CommonGameProperties(int _posicionX, int _posicionY, int _
 	visible = true;
 	MakeNumberObjects++;
 	idObjeto = MakeNumberObjects;
+	ObjectTexture = _ObjectTexture;
 }
 
 void CommonGameProperties::render() {};

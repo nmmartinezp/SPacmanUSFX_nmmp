@@ -1,6 +1,6 @@
 #pragma once
 #include <SDL.h>
-#include "Texture.h"
+//#include "Texture.h"
 #include "CommonGameProperties.h"
 
 class Fantasma : public CommonGameProperties{
@@ -28,7 +28,7 @@ private:
 
 	int RandMove;
 
-	Texture* fantasmaTexture = nullptr;
+	//Texture* fantasmaTexture = nullptr;
 public:
 	// Builders and destroyers
 	Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY,int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);

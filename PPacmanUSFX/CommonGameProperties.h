@@ -23,13 +23,13 @@ protected:
 
 	bool visible;
 
-	//Texture* ObjectTexture;
+	Texture* ObjectTexture;
 public:
 	static int MakeNumberObjects;
 
 public:
 
-	CommonGameProperties(int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+	CommonGameProperties(Texture* _ObjectTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
 
 	int getIdObjeto() { return idObjeto; }
 	int getPosicionX() { return posicionX; }

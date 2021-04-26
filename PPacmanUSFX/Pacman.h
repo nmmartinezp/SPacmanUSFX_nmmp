@@ -3,7 +3,7 @@
 #include <string>
 
 #include <SDL.h>
-#include "Texture.h"
+//#include "Texture.h"
 #include "CommonGameProperties.h"
 
 
@@ -21,11 +21,11 @@ private:
 	// Velocidad a la que mueve el fantasma en cualquier eje
 	int velocidadPatron;
 
-	Texture* texture;
+	//Texture* texture;
 
 public:
 	//Constructores y destructores
-	Pacman(Texture* _texture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Pacman(Texture* _pacmanTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
 	//~Pacman();
 
