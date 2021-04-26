@@ -97,8 +97,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Universidad\Materia Sis457\LIBRERIAS\SDL2\include;D:\Universidad\Materia Sis457\LIBRERIAS\SDL2_image\include;D:\Universidad\Materia Sis457\LIBRERIAS\SDL2_mixer\include;D:\Universidad\Materia Sis457\LIBRERIAS\SDL2_ttf\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Universidad\Materia Sis457\LIBRERIAS\SDL2\lib\x64;D:\Universidad\Materia Sis457\LIBRERIAS\SDL2_image\lib\x64;D:\Universidad\Materia Sis457\LIBRERIAS\SDL2_mixer\lib\x64;D:\Universidad\Materia Sis457\LIBRERIAS\SDL2_ttf\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\vclibs\SDL2\include;C:\vclibs\SDL2_image\include;C:\vclibs\SDL2_mixer\include;C:\vclibs\SDL2_ttf\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\vclibs\SDL2\lib\x64;C:\vclibs\SDL2_image\lib\x64;C:\vclibs\SDL2_mixer\lib\x64;C:\vclibs\SDL2_ttf\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
