@@ -10,10 +10,6 @@
 #include "Pacman.h"
 
 #include "Fantasma.h"
-#include "Fantasma2.h"
-#include "Fantasma3.h"
-#include "Fantasma4.h"
-
 #include "Texture.h"
 
 #include "Fruta.h"
@@ -39,25 +35,20 @@ private:
     //The surface contained by the window
     SDL_Surface* gScreenSurface;
 
-    //The images we will load and show on the screen
-    SDL_Texture* gPacmanTexture;
-
-    //SDL_Texture* gFantasmaTexture;
-    SDL_Texture* gFantasma2Texture;
-    SDL_Texture* gFantasma3Texture;
-    SDL_Texture* gFantasma4Texture;
-
     SDL_Texture* gFrutasTextures[4];
 
     Texture* fantasmaTexture = nullptr;
+    Texture* fantasma1Texture = nullptr;
+    Texture* fantasma2Texture = nullptr;
+    Texture* fantasma3Texture = nullptr;
     Texture* pacmanTexture = nullptr;
  
 public:
     Pacman* pacman;
     Fantasma* fantasma;
-    Fantasma2* fantasma2;
-    Fantasma3* fantasma3;
-    Fantasma4* fantasma4;
+    Fantasma* fantasma1;
+    Fantasma* fantasma2;
+    Fantasma* fantasma3;
     Fruta* fruta;
 
 public:

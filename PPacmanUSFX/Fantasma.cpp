@@ -7,6 +7,9 @@ Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, in
 	CommonGameProperties(_fantasmaTexture, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
 	//start properties
+	posicionXDestino = _posicionX;
+	posicionYDestino = _posicionY;
+
 	velocidadX = 1;
 	velocidadY = 1;
 	

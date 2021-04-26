@@ -21,9 +21,6 @@
   <ItemGroup>
     <ClCompile Include="CommonGameProperties.cpp" />
     <ClCompile Include="Fantasma.cpp" />
-    <ClCompile Include="Fantasma2.cpp" />
-    <ClCompile Include="Fantasma3.cpp" />
-    <ClCompile Include="Fantasma4.cpp" />
     <ClCompile Include="Fruta.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="main.cpp" />
@@ -33,9 +30,6 @@
   <ItemGroup>
     <ClInclude Include="CommonGameProperties.h" />
     <ClInclude Include="Fantasma.h" />
-    <ClInclude Include="Fantasma2.h" />
-    <ClInclude Include="Fantasma3.h" />
-    <ClInclude Include="Fantasma4.h" />
     <ClInclude Include="Fruta.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Pacman.h" />

@@ -6,8 +6,6 @@ GameManager::GameManager() {
 	gWindow = nullptr;
 	gRenderer = nullptr;
 	gScreenSurface = nullptr;
-	gPacmanTexture = nullptr;
-	//gFantasmaTexture = nullptr;
 
 	juego_en_ejecucion = true;
 	
@@ -20,9 +18,9 @@ int GameManager::onExecute() {
 
 	pacman = new Pacman(pacmanTexture, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	fantasma = new Fantasma(fantasmaTexture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	fantasma2 = new Fantasma2(gWindow, gRenderer, gScreenSurface, gFantasma2Texture, 0, 45, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	fantasma3 = new Fantasma3(gWindow, gRenderer, gScreenSurface, gFantasma3Texture, 0, 85, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	fantasma4 = new Fantasma4(gWindow, gRenderer, gScreenSurface, gFantasma4Texture, 0, 125, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	fantasma1 = new Fantasma(fantasma1Texture, 500, 400, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	fantasma2 = new Fantasma(fantasma2Texture, 0, 400, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	fantasma3 = new Fantasma(fantasma3Texture, 500, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	fruta = new Fruta(gWindow, gRenderer, gScreenSurface, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
 	srand(time(NULL));
 
@@ -36,18 +34,11 @@ int GameManager::onExecute() {
 		// Mover Pacman
 		pacman->move();
 
-		// Mover Fantasma
-		
+		// Mover Fantasmas
 		fantasma->move();
-		
-		// Mover Fantasma2
+		fantasma1->move();
 		fantasma2->move();
-
-		// Mover Fantasma3
 		fantasma3->move();
-
-		// Mover Fantasma4
-		fantasma4->move();
 
 		//mostrar fruta
 		fruta->mostrar();
@@ -117,26 +108,15 @@ bool GameManager::onInit() {
 			fantasmaTexture = new Texture();
 			fantasmaTexture->loadFromImage("Resources/Fantasma.bmp");
 
-			gFantasma2Texture = loadTexture("Resources/Fantasma2.bmp");
-			if (gFantasma2Texture == NULL)
-			{
-				cout << "Fallo en la carga de la textura aqui" << endl;
-				success = false;
-			}
+			fantasma1Texture = new Texture();
+			fantasma1Texture->loadFromImage("Resources/Fantasma.bmp");
 
-			gFantasma3Texture = loadTexture("Resources/Fantasma3.bmp");
-			if (gFantasma3Texture == NULL)
-			{
-				cout << "Fallo en la carga de la textura aqui" << endl;
-				success = false;
-			}
+			fantasma2Texture = new Texture();
+			fantasma2Texture->loadFromImage("Resources/Fantasma.bmp");
 
-			gFantasma4Texture = loadTexture("Resources/Fantasma4.bmp");
-			if (gFantasma4Texture == NULL)
-			{
-				cout << "Fallo en la carga de la textura aqui" << endl;
-				success = false;
-			}
+			fantasma3Texture = new Texture();
+			fantasma3Texture->loadFromImage("Resources/Fantasma.bmp");
+
 
 			if ((gFrutasTextures[0] = loadTexture("Resources/Fruta01.png")) == NULL) {
 				cout << "Fallo en la carga de la textura aqui" << endl;
@@ -173,9 +153,9 @@ void GameManager::onRender() {
 
 	
 	fantasma->renderizar();
-	fantasma2->render();
-	fantasma3->render();
-	fantasma4->render();
+	fantasma1->renderizar();
+	fantasma2->renderizar();
+	fantasma3->renderizar();
 	fruta->render();
 };
 
