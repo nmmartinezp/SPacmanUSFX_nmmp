@@ -106,39 +106,39 @@ bool GameManager::onInit() {
 			//Get window surface
 			gScreenSurface = SDL_GetWindowSurface(gWindow);
 
-			Texture::renderer = gRenderer;
-
-			pacmanTexture = new Texture();
-			pacmanTexture->loadFromImage("Resources/PacMan_01.bmp");
-
-			fantasmaTexture = new Texture();
-			fantasmaTexture->loadFromImage("Resources/Fantasma.bmp");
-
-			fantasma1Texture = new Texture();
-			fantasma1Texture->loadFromImage("Resources/Fantasma.bmp");
-
-			fantasma2Texture = new Texture();
-			fantasma2Texture->loadFromImage("Resources/Fantasma.bmp");
-
-			fantasma3Texture = new Texture();
-			fantasma3Texture->loadFromImage("Resources/Fantasma.bmp");
-
-			frutasTextures[0] = new Texture();
-			frutasTextures[0]->loadFromImage("Resources/fruta01.bmp");
-
-			frutasTextures[1] = new Texture();
-			frutasTextures[1]->loadFromImage("Resources/fruta02.bmp");
-
-			frutasTextures[2] = new Texture();
-			frutasTextures[2]->loadFromImage("Resources/fruta03.bmp");
-
-			frutasTextures[3] = new Texture();
-			frutasTextures[3]->loadFromImage("Resources/fruta04.bmp");
-
-			coinTexture = new Texture();
-			coinTexture->loadFromImage("Resources/point.bmp");
 		}
 
+		Texture::renderer = gRenderer;
+
+		pacmanTexture = new Texture();
+		pacmanTexture->loadFromImage("Resources/PacMan_01.bmp");
+
+		fantasmaTexture = new Texture();
+		fantasmaTexture->loadFromImage("Resources/Fantasma.bmp");
+
+		fantasma1Texture = new Texture();
+		fantasma1Texture->loadFromImage("Resources/Fantasma.bmp");
+
+		fantasma2Texture = new Texture();
+		fantasma2Texture->loadFromImage("Resources/Fantasma.bmp");
+
+		fantasma3Texture = new Texture();
+		fantasma3Texture->loadFromImage("Resources/Fantasma.bmp");
+
+		frutasTextures[0] = new Texture();
+		frutasTextures[0]->loadFromImage("Resources/fruta01.bmp");
+
+		frutasTextures[1] = new Texture();
+		frutasTextures[1]->loadFromImage("Resources/fruta02.bmp");
+
+		frutasTextures[2] = new Texture();
+		frutasTextures[2]->loadFromImage("Resources/fruta03.bmp");
+
+		frutasTextures[3] = new Texture();
+		frutasTextures[3]->loadFromImage("Resources/fruta04.bmp");
+
+		coinTexture = new Texture();
+		coinTexture->loadFromImage("Resources/point.bmp");
 	}
 	
 	return success;
