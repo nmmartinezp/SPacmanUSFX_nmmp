@@ -8,11 +8,12 @@
 #include <SDL_image.h>
 
 #include "Pacman.h"
-
 #include "Fantasma.h"
+#include "Fruta.h"
+#include "Coin.h"
+
 #include "Texture.h"
 
-#include "Fruta.h"
 
 using namespace std;
 
@@ -42,6 +43,7 @@ private:
     Texture* fantasma2Texture = nullptr;
     Texture* fantasma3Texture = nullptr;
     Texture* pacmanTexture = nullptr;
+    Texture* coinTexture = nullptr;
  
 public:
     Pacman* pacman;
@@ -50,6 +52,7 @@ public:
     Fantasma* fantasma2;
     Fantasma* fantasma3;
     Fruta* fruta;
+    Coin* coin[10];
 
 public:
     GameManager();

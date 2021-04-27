@@ -22,6 +22,15 @@ int GameManager::onExecute() {
 	fantasma2 = new Fantasma(fantasma2Texture, 0, 400, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	fantasma3 = new Fantasma(fantasma3Texture, 500, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	fruta = new Fruta(frutasTextures, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+	int posX = 0;
+	for (int i = 0; i < 10; i++)
+	{
+		cout << "mira prro" << endl;
+		posX = i * 50;
+		coin[i] = new Coin(coinTexture, posX, 150, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT);
+	}
+	
 	srand(time(NULL));
 
     SDL_Event Event;
@@ -128,6 +137,9 @@ bool GameManager::onInit() {
 
 			frutasTextures[3] = new Texture();
 			frutasTextures[3]->loadFromImage("Resources/fruta04.bmp");
+
+			coinTexture = new Texture();
+			coinTexture->loadFromImage("Resources/point.bmp");
 		}
 
 	}
@@ -143,13 +155,16 @@ void GameManager::onEvent(SDL_Event* Event) {
 void GameManager::onLoop() {};
 void GameManager::onRender() {
 	pacman->renderizar();
-
-	
 	fantasma->renderizar();
 	fantasma1->renderizar();
 	fantasma2->renderizar();
 	fantasma3->renderizar();
 	fruta->renderizar();
+	for (int i = 0; i < 10; i++)
+	{
+		coin[i]->renderizar();
+	}
+	
 };
 
 void GameManager::onCleanup() {
