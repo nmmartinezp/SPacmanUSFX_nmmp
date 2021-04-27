@@ -25,6 +25,7 @@
     <ClCompile Include="Fruta.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="Pacman.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
@@ -34,6 +35,7 @@
     <ClInclude Include="Fantasma.h" />
     <ClInclude Include="Fruta.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Pacman.h" />
     <ClInclude Include="Texture.h" />
   </ItemGroup>

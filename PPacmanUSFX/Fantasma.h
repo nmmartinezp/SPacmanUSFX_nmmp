@@ -20,10 +20,6 @@ private:
 	int incrementoPosicionX;
 	int incrementoPosicionY;
 
-	int numeroFrame;
-	int contadorFrames;
-	const int framesMovimiento = 4;
-
 	int RandMove;
 public:
 	// Builders and destroyers
@@ -42,7 +38,4 @@ public:
 
 	// Move gosht
 	void move();
-	// Render ghost image
-	void renderizar();
-
 };

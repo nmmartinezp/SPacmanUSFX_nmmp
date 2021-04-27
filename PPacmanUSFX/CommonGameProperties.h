@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "Texture.h"
+#include <vector>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ class CommonGameProperties
 public:
 	string nombre;
 protected:
+	
 
 	int idObjeto;
 	int posicionX;
@@ -24,6 +26,10 @@ protected:
 	int altoPantalla;
 
 	bool visible;
+
+	int numeroFrame;
+	int contadorFrames;
+	int framesMovimiento;
 
 	Texture* ObjectTexture;
 public:
@@ -51,11 +57,11 @@ public:
 	void setVisible(bool _visible) { visible = _visible; }
 
 	//render de imagen
-	void render(int posicionX, int posicionY, int numeroFrame, int ancho, int alto);
+	virtual void render();
 	//movimiento de objeto
 	virtual void move() {};
 	//actualizacion de datos
-	void update(int contadorFrames, int numeroFrame, int framesMovimiento);
+	virtual void update();
 	//visibilidad de objeto
 	virtual void mostrar() {};
 };

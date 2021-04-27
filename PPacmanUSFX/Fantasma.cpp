@@ -9,13 +9,9 @@ Fantasma::Fantasma(Texture* _fantasmaTexture, int _posicionX, int _posicionY, in
 	posicionXDestino = _posicionX;
 	posicionYDestino = _posicionY;
 	velocidadPatron = _velocidadPatron;
-	ObjectTexture = _fantasmaTexture;
 
 	velocidadX = 1;
 	velocidadY = 1;
-	numeroFrame = 0;
-	contadorFrames = 0;
-	RandMove = 0;
 }
 
 void Fantasma::move()
@@ -77,9 +73,4 @@ void Fantasma::move()
 		}
 	}
 	
-}
-
-void Fantasma::renderizar() {
-	render(posicionX, posicionY, numeroFrame, ancho, alto);
-	update(contadorFrames, numeroFrame, framesMovimiento);
 }

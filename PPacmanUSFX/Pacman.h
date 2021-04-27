@@ -39,8 +39,5 @@ public:
 	void handleEvent(SDL_Event& e);
 	// Mover pacman
 	void move();
-	//render to screen
-	void renderizar();
-
 };
 

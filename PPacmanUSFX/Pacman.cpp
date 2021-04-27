@@ -6,7 +6,6 @@ Pacman::Pacman(Texture* _pacmanTexture, int _posicionX, int _posicionY, int _anc
 	velocidadX = 0;
 	velocidadY = 0;
 	velocidadPatron = _velocidadPatron;
-	ObjectTexture = _pacmanTexture;
 }
 
 void Pacman::handleEvent(SDL_Event& e)
@@ -60,6 +59,3 @@ void Pacman::move()
 		posicionY -= velocidadY;
 	}
 }
-
-void Pacman::renderizar(){ render(posicionX, posicionY, 0, ancho, alto); }
-

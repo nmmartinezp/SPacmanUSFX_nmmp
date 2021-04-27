@@ -13,16 +13,19 @@ CommonGameProperties::CommonGameProperties(Texture* _ObjectTexture, int _posicio
 	MakeNumberObjects++;
 	idObjeto = MakeNumberObjects;
 	ObjectTexture = _ObjectTexture;
+	numeroFrame = 0;
+	contadorFrames = 0;
+	framesMovimiento = 1;
 }
 
-void CommonGameProperties::render(int posicionX, int posicionY, int numeroFrame, int ancho, int alto) {
+void CommonGameProperties::render() {
 	SDL_Rect renderQuad = { 25 * numeroFrame, 0, ancho, alto };
 
 	//Render to screen
 	ObjectTexture->render(posicionX, posicionY, &renderQuad);
 };
 
-void CommonGameProperties::update(int contadorFrames, int numeroFrame, int framesMovimiento) {
+void CommonGameProperties::update() {
 	contadorFrames++;
 	numeroFrame = contadorFrames / 8;
 

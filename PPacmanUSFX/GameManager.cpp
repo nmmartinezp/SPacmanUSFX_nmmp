@@ -61,9 +61,7 @@ int GameManager::onExecute() {
         onRender();
 		SDL_RenderPresent(gRenderer);
     }
-
     onCleanup();
-
     return 0;
 }
 
@@ -89,7 +87,6 @@ bool GameManager::onInit() {
 		}
 		else
 		{
-
 			//Create vsynced renderer for window
 			gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 			if (gRenderer == NULL)
@@ -102,10 +99,8 @@ bool GameManager::onInit() {
 				//Initialize renderer color
 				SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 			}
-
 			//Get window surface
 			gScreenSurface = SDL_GetWindowSurface(gWindow);
-
 		}
 
 		Texture::renderer = gRenderer;
@@ -149,15 +144,17 @@ void GameManager::onEvent(SDL_Event* Event) {
 		juego_en_ejecucion = false;
 	}
 };
+
 void GameManager::onLoop() {};
+
 void GameManager::onRender() {
-	pacman->renderizar();
-	fantasma->renderizar();
-	fantasma1->renderizar();
-	fantasma2->renderizar();
-	fantasma3->renderizar();
+	for (int i = 0; i < 10; i++) {coin[i]->render();}
 	fruta->renderizar();
-	for (int i = 0; i < 10; i++) {coin[i]->renderizar();}
+	pacman->render();
+	fantasma->render();
+	fantasma1->render();
+	fantasma2->render();
+	fantasma3->render();
 };
 
 void GameManager::onCleanup() {
@@ -165,31 +162,3 @@ void GameManager::onCleanup() {
 	
 	SDL_Quit();
 };
-
-
-SDL_Texture* GameManager::loadTexture(string path)
-{
-	// Textura final generada
-	SDL_Texture* newTexture = nullptr;
-
-	// Carga una imagen de una ruta especifica
-	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
-	if (loadedSurface == NULL)
-	{
-		cout << "No se pudo cargarla imagen, SDL_image Error: " << IMG_GetError() << endl;
-	}
-	else
-	{
-		// Crea una textura a partir de una superficie de pixeles
-		newTexture = SDL_CreateTextureFromSurface(gRenderer, loadedSurface);
-		if (newTexture == NULL)
-		{
-			cout << "No se pudo crear la textura, SDL Error: " << SDL_GetError() << endl;
-		}
-
-		// Libera la superficie cargada
-		SDL_FreeSurface(loadedSurface);
-	}
-
-	return newTexture;
-}

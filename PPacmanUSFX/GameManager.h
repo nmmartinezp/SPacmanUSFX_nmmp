@@ -3,6 +3,7 @@
 #include <string>
 #include <stdlib.h>
 #include <time.h>
+#include <vector>
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -12,6 +13,7 @@
 #include "Fruta.h"
 #include "Coin.h"
 
+#include "CommonGameProperties.h"
 #include "Texture.h"
 
 using namespace std;
@@ -51,7 +53,6 @@ public:
     Fantasma* fantasma3;
     Fruta* fruta;
     Coin* coin[10];
-
 public:
     GameManager();
     int onExecute();
