@@ -1,3 +1,5 @@
+
+//Clase hija de CommonGameProperties
 #pragma once
 #include <SDL.h>
 #include "CommonGameProperties.h"
