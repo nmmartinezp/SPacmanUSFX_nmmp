@@ -1,16 +1,13 @@
 #include <stdio.h>
 #include "Pacman.h"
 
-
 Pacman::Pacman(Texture* _pacmanTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
 	CommonGameProperties(_pacmanTexture, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla) {
 	velocidadX = 0;
 	velocidadY = 0;
 	velocidadPatron = _velocidadPatron;
 	ObjectTexture = _pacmanTexture;
-	numeroFrame = 0;
 }
-
 
 void Pacman::handleEvent(SDL_Event& e)
 {
@@ -64,8 +61,5 @@ void Pacman::move()
 	}
 }
 
-void Pacman::renderizar()
-{
-	render(posicionX, posicionY, numeroFrame, ancho, alto);
-}
+void Pacman::renderizar(){ render(posicionX, posicionY, 0, ancho, alto); }
 

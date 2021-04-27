@@ -26,7 +26,7 @@ int GameManager::onExecute() {
 	int posX = 0;
 	for (int i = 0; i < 10; i++)
 	{
-		cout << "mira prro" << endl;
+		cout << "Moneda " << i << " creada" << "///";
 		posX = i * 50;
 		coin[i] = new Coin(coinTexture, posX, 150, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT);
 	}
@@ -123,9 +123,6 @@ bool GameManager::onInit() {
 			fantasma3Texture = new Texture();
 			fantasma3Texture->loadFromImage("Resources/Fantasma.bmp");
 
-			/*frutasTextures = new Texture();
-			frutasTextures->loadFromImage("Resources/Fruta01.bmp");*/
-
 			frutasTextures[0] = new Texture();
 			frutasTextures[0]->loadFromImage("Resources/fruta01.bmp");
 
@@ -160,11 +157,7 @@ void GameManager::onRender() {
 	fantasma2->renderizar();
 	fantasma3->renderizar();
 	fruta->renderizar();
-	for (int i = 0; i < 10; i++)
-	{
-		coin[i]->renderizar();
-	}
-	
+	for (int i = 0; i < 10; i++) {coin[i]->renderizar();}
 };
 
 void GameManager::onCleanup() {

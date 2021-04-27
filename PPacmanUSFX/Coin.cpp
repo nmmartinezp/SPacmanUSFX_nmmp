@@ -6,6 +6,4 @@ Coin::Coin(Texture* _coinTexture, int _posicionX, int _posicionY, int _ancho, in
 	ObjectTexture = _coinTexture;
 }
 
-void Coin::renderizar() {
-	render( posicionX, posicionY, 0, ancho, alto);
-}
+void Coin::renderizar() { render( posicionX, posicionY, 0, ancho, alto); }
