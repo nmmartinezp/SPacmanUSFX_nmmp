@@ -46,13 +46,14 @@ private:
     Texture* coinTexture = nullptr;
  
 public:
-    Pacman* pacman;
-    Fantasma* fantasma;
-    Fantasma* fantasma1;
-    Fantasma* fantasma2;
-    Fantasma* fantasma3;
-    Fruta* fruta;
-    Coin* coin[10];
+    //Pacman* pacman;
+    //Fantasma* fantasma;
+    //Fantasma* fantasma1;
+    //Fantasma* fantasma2;
+    //Fantasma* fantasma3;
+    //Fruta* fruta;
+    //Coin* coin[10];
+    vector<CommonGameProperties*> actores;
 public:
     GameManager();
     int onExecute();

@@ -33,7 +33,7 @@ void Fruta::mostrar()
 	else { contadorTiempoVisible++; }
 }
 
-void Fruta::renderizar()
+void Fruta::render()
 {
 	if (visible) {
 		SDL_Rect renderQuad = { 0, 0, ancho, alto };

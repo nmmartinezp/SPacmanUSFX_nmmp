@@ -1,6 +1,7 @@
 
 //CLASE HIJA DE COMMONGAMEPROPERTIES
 #pragma once
+#include <iostream>
 #include <SDL.h>
 #include "Texture.h"
 #include "CommonGameProperties.h"
@@ -32,6 +33,6 @@ public:
 	// Mostrar u ocultar fruta
 	void mostrar();
 	// Renderizar imagen fruta
-	void renderizar();
+	void render();
 
 };

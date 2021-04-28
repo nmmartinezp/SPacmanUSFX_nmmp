@@ -15,20 +15,26 @@ int GameManager::onExecute() {
     if (onInit() == false) {
         return -1;
     }
-
-	pacman = new Pacman(pacmanTexture, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	fantasma = new Fantasma(fantasmaTexture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	fantasma1 = new Fantasma(fantasma1Texture, 500, 400, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	fantasma2 = new Fantasma(fantasma2Texture, 0, 400, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	fantasma3 = new Fantasma(fantasma3Texture, 500, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	fruta = new Fruta(frutasTextures, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT);
-
+	actores.push_back(new Pacman(pacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
+	actores.push_back(new Fantasma(fantasmaTexture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
+	actores.push_back(new Fantasma(fantasma1Texture, 500, 400, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
+	actores.push_back(new Fantasma(fantasma2Texture, 0, 400, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
+	actores.push_back(new Fantasma(fantasma3Texture, 500, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
+	actores.push_back(new Fruta(frutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
+	//pacman = new Pacman(pacmanTexture, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	//fantasma = new Fantasma(fantasmaTexture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	//fantasma1 = new Fantasma(fantasma1Texture, 500, 400, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	//fantasma2 = new Fantasma(fantasma2Texture, 0, 400, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	//fantasma3 = new Fantasma(fantasma3Texture, 500, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
+	//fruta = new Fruta(frutasTextures, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT);
+	
 	int posX = 0;
 	for (int i = 0; i < 10; i++)
 	{
-		cout << "Moneda " << i << " creada" << "///";
+		//cout << "Moneda " << i << " creada" << "///";
 		posX = i * 50;
-		coin[i] = new Coin(coinTexture, posX, 150, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT);
+		//coin[i] = new Coin(coinTexture, posX, 150, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT);
+		actores.push_back(new Coin(coinTexture, posX, 150, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
 	}
 	
 	srand(time(NULL));
@@ -38,19 +44,27 @@ int GameManager::onExecute() {
     while (juego_en_ejecucion) {
         while (SDL_PollEvent(&Event)) {
             onEvent(&Event);
-			pacman->handleEvent(Event);
+			for (int i = 0; i < actores.size(); i++) {
+				actores[i]->handleEvent(Event);
+			}
+			//pacman->handleEvent(Event);
         }
+
+		for (int i = 0; i < actores.size(); i++) {
+			actores[i]->move();
+			actores[i]->mostrar();
+		}
 		// Mover Pacman
-		pacman->move();
+		//pacman->move();
 
-		// Mover Fantasmas
-		fantasma->move();
-		fantasma1->move();
-		fantasma2->move();
-		fantasma3->move();
+		//// Mover Fantasmas
+		//fantasma->move();
+		//fantasma1->move();
+		//fantasma2->move();
+		//fantasma3->move();
 
-		//mostrar fruta
-		fruta->mostrar();
+		////mostrar fruta
+		//fruta->mostrar();
 
 		//Clear screen
 		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);
@@ -105,8 +119,7 @@ bool GameManager::onInit() {
 
 		Texture::renderer = gRenderer;
 
-		pacmanTexture = new Texture();
-		pacmanTexture->loadFromImage("Resources/PacMan_01.bmp");
+
 
 		fantasmaTexture = new Texture();
 		fantasmaTexture->loadFromImage("Resources/fantasma01_v1.png");
@@ -134,6 +147,10 @@ bool GameManager::onInit() {
 
 		coinTexture = new Texture();
 		coinTexture->loadFromImage("Resources/point.bmp");
+
+		pacmanTexture = new Texture();
+		pacmanTexture->loadFromImage("Resources/PacMan_01.bmp");
+
 	}
 	
 	return success;
@@ -148,13 +165,19 @@ void GameManager::onEvent(SDL_Event* Event) {
 void GameManager::onLoop() {};
 
 void GameManager::onRender() {
-	for (int i = 0; i < 10; i++) {coin[i]->render();}
-	fruta->renderizar();
-	pacman->render();
-	fantasma->render();
-	fantasma1->render();
-	fantasma2->render();
-	fantasma3->render();
+	for (int i = 0; i < actores.size(); i++) {
+		actores[i]->update();
+		actores[i]->render();
+	}
+
+	//pacman->render();
+	//for (int i = 0; i < 10; i++) {coin[i]->render();}
+	//fruta->renderizar();
+	//pacman->render();
+	//fantasma->render();
+	//fantasma1->render();
+	//fantasma2->render();
+	//fantasma3->render();
 };
 
 void GameManager::onCleanup() {

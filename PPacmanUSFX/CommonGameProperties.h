@@ -63,5 +63,7 @@ public:
 	virtual void update();
 	//visibilidad de objeto
 	virtual void mostrar() {};
+
+	virtual void handleEvent(SDL_Event& e) {};
 };
 
