@@ -25,6 +25,7 @@ protected:
 	int altoPantalla;
 
 	bool visible;
+	int activador_update;
 
 	int numeroFrame;
 	int contadorFrames;
@@ -54,6 +55,8 @@ public:
 	void setAnchoPantalla(int _anchoPantalla) { anchoPantalla = _anchoPantalla; }
 	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
 	void setVisible(bool _visible) { visible = _visible; }
+
+	void setParametrosAnimacion(int _framesMovimiento) { framesMovimiento = _framesMovimiento; }
 
 	//render de imagen
 	virtual void render();

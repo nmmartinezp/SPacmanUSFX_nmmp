@@ -3,24 +3,20 @@
 #pragma once
 #include <iostream>
 #include <SDL.h>
-#include "Texture.h"
 #include "CommonGameProperties.h"
 
 class Fruta : public CommonGameProperties
 {
-private:
-	int cambioDeFruta;
-	
+private:	
 	int tiempoVisible;
 	int tiempoNoVisible;
 
 	int contadorTiempoVisible;
 	int contadorTiempoNoVisible;
 
-	Texture* frutasTextures[4];
 public:
 
-	Fruta(Texture* _frutasTextures[], int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+	Fruta(Texture* _frutasTextures, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
 	
 	int getTiempoVisible() { return tiempoVisible; }
 	int getTiempoNoVisible() { return tiempoNoVisible; }
@@ -32,7 +28,4 @@ public:
 
 	// Mostrar u ocultar fruta
 	void mostrar();
-	// Renderizar imagen fruta
-	void render();
-
 };

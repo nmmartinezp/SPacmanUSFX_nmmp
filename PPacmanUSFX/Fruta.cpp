@@ -3,15 +3,15 @@
 
 using namespace std;
 
-Fruta::Fruta(Texture* _frutasTextures[], int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) :
-	CommonGameProperties(_frutasTextures[4], _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+Fruta::Fruta(Texture* _frutasTextures, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) :
+	CommonGameProperties(_frutasTextures, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
 	tiempoVisible = 100;
 	tiempoNoVisible = 150;
 	contadorTiempoVisible = 0;
 	contadorTiempoNoVisible = 0;
 	visible = false;
-	for (int i = 0; i <= 3; i++) { frutasTextures[i] = _frutasTextures[i]; }	
+	activador_update = 0;
 }
 
 void Fruta::mostrar()
@@ -19,24 +19,18 @@ void Fruta::mostrar()
 	if (contadorTiempoVisible >= tiempoVisible) 
 	{
 		visible = false;
-		if (visible == false) { cambioDeFruta = rand() % 4; }
+		activador_update = 2;
 		if (contadorTiempoNoVisible >= tiempoNoVisible) 
 		{
-			posicionX = 1 + rand() % (anchoPantalla - ancho);
-			posicionY = 1 + rand() % (altoPantalla - alto);
+			posicionX = rand() % (anchoPantalla - ancho);
+			posicionY = rand() % (altoPantalla - alto);
 			contadorTiempoVisible = 0;
 			contadorTiempoNoVisible = 0;
 			visible = true;
+			activador_update = 0;
+			numeroFrame++;
 		}
 		else { contadorTiempoNoVisible++; }
 	}
 	else { contadorTiempoVisible++; }
-}
-
-void Fruta::render()
-{
-	if (visible) {
-		SDL_Rect renderQuad = { 0, 0, ancho, alto };
-		frutasTextures[cambioDeFruta]->render(posicionX, posicionY, &renderQuad);
-	}
 }

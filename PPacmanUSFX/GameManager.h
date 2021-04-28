@@ -15,6 +15,7 @@
 
 #include "CommonGameProperties.h"
 #include "Texture.h"
+#include "MapGenerator.h"
 
 using namespace std;
 
@@ -36,14 +37,13 @@ private:
     //The surface contained by the window
     SDL_Surface* gScreenSurface;
 
-    Texture* frutasTextures[4];
-
-    Texture* fantasmaTexture = nullptr;
-    Texture* fantasma1Texture = nullptr;
-    Texture* fantasma2Texture = nullptr;
-    Texture* fantasma3Texture = nullptr;
-    Texture* pacmanTexture = nullptr;
-    Texture* coinTexture = nullptr;
+    //Texture* frutasTextures[4];
+    //Texture* fantasmaTexture = nullptr;
+    //Texture* fantasma1Texture = nullptr;
+    //Texture* fantasma2Texture = nullptr;
+    //Texture* fantasma3Texture = nullptr;
+    //Texture* pacmanTexture = nullptr;
+    //Texture* coinTexture = nullptr;
  
 public:
     //Pacman* pacman;
@@ -53,6 +53,7 @@ public:
     //Fantasma* fantasma3;
     //Fruta* fruta;
     //Coin* coin[10];
+    MapGenerator* LevelGameGernerator;
     vector<CommonGameProperties*> actores;
 public:
     GameManager();
