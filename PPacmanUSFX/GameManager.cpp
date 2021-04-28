@@ -109,16 +109,16 @@ bool GameManager::onInit() {
 		pacmanTexture->loadFromImage("Resources/PacMan_01.bmp");
 
 		fantasmaTexture = new Texture();
-		fantasmaTexture->loadFromImage("Resources/Fantasma.bmp");
+		fantasmaTexture->loadFromImage("Resources/fantasma01_v1.png");
 
 		fantasma1Texture = new Texture();
-		fantasma1Texture->loadFromImage("Resources/Fantasma.bmp");
+		fantasma1Texture->loadFromImage("Resources/fantasma01_v1.png");
 
 		fantasma2Texture = new Texture();
-		fantasma2Texture->loadFromImage("Resources/Fantasma.bmp");
+		fantasma2Texture->loadFromImage("Resources/fantasma01_v1.png");
 
 		fantasma3Texture = new Texture();
-		fantasma3Texture->loadFromImage("Resources/Fantasma.bmp");
+		fantasma3Texture->loadFromImage("Resources/fantasma01_v1.png");
 
 		frutasTextures[0] = new Texture();
 		frutasTextures[0]->loadFromImage("Resources/fruta01.png");
