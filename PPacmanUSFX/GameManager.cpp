@@ -121,16 +121,16 @@ bool GameManager::onInit() {
 		fantasma3Texture->loadFromImage("Resources/Fantasma.bmp");
 
 		frutasTextures[0] = new Texture();
-		frutasTextures[0]->loadFromImage("Resources/fruta01.bmp");
+		frutasTextures[0]->loadFromImage("Resources/fruta01.png");
 
 		frutasTextures[1] = new Texture();
-		frutasTextures[1]->loadFromImage("Resources/fruta02.bmp");
+		frutasTextures[1]->loadFromImage("Resources/fruta02.png");
 
 		frutasTextures[2] = new Texture();
-		frutasTextures[2]->loadFromImage("Resources/fruta03.bmp");
+		frutasTextures[2]->loadFromImage("Resources/fruta03.png");
 
 		frutasTextures[3] = new Texture();
-		frutasTextures[3]->loadFromImage("Resources/fruta04.bmp");
+		frutasTextures[3]->loadFromImage("Resources/fruta04.png");
 
 		coinTexture = new Texture();
 		coinTexture->loadFromImage("Resources/point.bmp");

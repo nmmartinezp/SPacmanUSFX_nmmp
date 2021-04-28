@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include "Texture.h"
-#include <vector>
 
 using namespace std;
 
