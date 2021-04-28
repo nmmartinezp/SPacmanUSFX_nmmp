@@ -58,7 +58,7 @@ bool MapGenerator::load(string path)
 				break;
 			case '.':
 				newObject = new Coin(coinTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				newObject->setParametrosAnimacion(0);
+				newObject->setParametrosAnimacion(10);
 				break;
 			case 'p':
 				newObject = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);

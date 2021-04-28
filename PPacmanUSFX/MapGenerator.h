@@ -25,7 +25,7 @@ private:
 	const string pathFantasma3 = "Resources/Fantasma01.bmp";
 	const string pathFantasma4 = "Resources/Fantasma01.bmp";
 	const string pathFrutas = "Resources/Fantasma02.bmp";
-	const string pathCoin = "Resources/point.bmp";
+	const string pathCoin = "Resources/monedas-chinas.png";
 
 	//const string pathSuperMoneda = "Resources/Monedas03.jpg";
 	//const string pathPared = "Resources/wall_sprite.bmp";
