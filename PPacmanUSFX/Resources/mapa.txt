@@ -1,15 +1,15 @@
-xxxxxxxxxxxxxxxxxxxx
+yqqqqqqqqqqqqqqqqqqv
 x..................x
-x.xxx.xxx..xxx.xxx.x
+x.qqq.qqq..qqq.qqq.x
 x..................x
-x.xxx.x.xxxx.x.xxx.x
+x.qqq.x.qqqq.x.qqq.x
 x.....x......x.....x
-xxxxx.xxx..xxx.xxxxx
-xxxxx..........xxxxx
-......xxxxxxxx......
-xxxxx.x  b  fx.xxxxx
-xxxxx.xxxxxxxx.xxxxx
+wqqqv.wqq..qqz.yqqqz
+qqqqz..........wqqqq
+......yqqq qqv......
+qqqqv.x  b  fx.yqqqq
+yqqqz.wqqqqqqz.wqqqv
 x..................x
-x.xxxxxxxxxxxxxxxx.x
+x.qqqqqqqqqqqqqqqq.x
 x........p.........x
-xxxxxxxxxxxxxxxxxxxx
+wqqqqqqqqqqqqqqqqqqz

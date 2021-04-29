@@ -10,6 +10,7 @@
 #include "Fantasma.h"
 #include "Pacman.h"
 #include "Fruta.h"
+#include "Wall.h"
 
 
 using namespace std;
@@ -20,25 +21,18 @@ private:
 	vector<CommonGameProperties*> vectorObjetosJuego;
 
 	const string pathPacman = "Resources/PacMan_01.bmp";
-	const string pathFantasma1 = "Resources/Fantasma01.bmp";
+	const string pathFantasma1 = "Resources/Fantasma01.png";
 	const string pathFantasma2 = "Resources/Fantasma01.bmp";
 	const string pathFantasma3 = "Resources/Fantasma01.bmp";
 	const string pathFantasma4 = "Resources/Fantasma01.bmp";
 	const string pathFrutas = "Resources/Fantasma02.bmp";
 	const string pathCoin = "Resources/monedas-chinas.png";
-
-	//const string pathSuperMoneda = "Resources/Monedas03.jpg";
-	//const string pathPared = "Resources/wall_sprite.bmp";
-
-	//Texture* pacmanTexture;
-	//Texture* fantasma1Texture;
-	//Texture* fantasma2Texture;
-	//Texture* fantasma3Texture;
-	//Texture* fantasma4Texture;
-	//Texture* frutaTexture;
-	//Texture* monedaTexture;
-	//Texture* superMonedaTexture;
-	//Texture* paredTexture;
+	const string pathWall = "Resources/pared_abajo.png";
+	const string pathWall2 = "Resources/pared_arriba.png";
+	const string pathWall3 = "Resources/codo1.png";
+	const string pathWall4 = "Resources/codo2.png";
+	const string pathWall5 = "Resources/codo3.png";
+	const string pathWall6 = "Resources/codo4.png";
 
 	Texture* frutasTextures;
 	Texture* fantasma1Texture = nullptr;
@@ -47,6 +41,12 @@ private:
 	Texture* fantasma4Texture = nullptr;
 	Texture* pacmanTexture = nullptr;
 	Texture* coinTexture = nullptr;
+	Texture* wallTexture = nullptr;
+	Texture* wallTexture2 = nullptr;
+	Texture* wallTexture3 = nullptr;
+	Texture* wallTexture4 = nullptr;
+	Texture* wallTexture5 = nullptr;
+	Texture* wallTexture6 = nullptr;
 
 	int anchoPantalla;
 	int altoPantalla;

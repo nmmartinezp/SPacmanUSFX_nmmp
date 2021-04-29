@@ -19,10 +19,18 @@ MapGenerator::MapGenerator(int _anchoPantalla, int _altoPantalla)
 	frutasTextures->loadFromImage(pathFrutas);
 	coinTexture = new Texture();
 	coinTexture->loadFromImage(pathCoin);
-	//superMonedaTexture = new Texture();
-	//superMonedaTexture->loadFromImage(pathSuperMoneda);
-	//paredTexture = new Texture();
-	//paredTexture->loadFromImage(pathPared);
+	wallTexture = new Texture();
+	wallTexture->loadFromImage(pathWall);
+	wallTexture2 = new Texture();
+	wallTexture2->loadFromImage(pathWall2);
+	wallTexture3 = new Texture();
+	wallTexture3->loadFromImage(pathWall3);
+	wallTexture4 = new Texture();
+	wallTexture4->loadFromImage(pathWall4);
+	wallTexture5 = new Texture();
+	wallTexture5->loadFromImage(pathWall5);
+	wallTexture6 = new Texture();
+	wallTexture6->loadFromImage(pathWall6);
 }
 
 bool MapGenerator::load(string path)
@@ -53,13 +61,7 @@ bool MapGenerator::load(string path)
 			// Se verifica que letra es la que se lee y en funcion a ello se crea un tipo de objeto
 			switch (chars[x])
 			{
-			case 'x':
-				//newObject = new Wall(tile, pTextureManager->Get("wall"));
-				break;
-			case '.':
-				newObject = new Coin(coinTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
-				newObject->setParametrosAnimacion(10);
-				break;
+
 			case 'p':
 				newObject = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
 				newObject->setParametrosAnimacion(0);
@@ -72,6 +74,35 @@ bool MapGenerator::load(string path)
 				newObject = new Fruta(frutasTextures, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(4);
 				break;
+			case 'q':
+				newObject = new Wall(wallTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(0);
+				break;
+			case 'x':
+				newObject = new Wall(wallTexture2, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(0);
+				break;
+			case 'y':
+				newObject = new Wall(wallTexture3, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(0);
+				break;
+			case 'w':
+				newObject = new Wall(wallTexture4, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(0);
+				break;
+			case 'z':
+				newObject = new Wall(wallTexture5, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(0);
+				break;
+			case 'v':
+				newObject = new Wall(wallTexture6, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(0);
+				break;
+			case '.':
+				newObject = new Coin(coinTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(10);
+				break;
+			
 			}
 
 			// If the object was created, add it to the vector
