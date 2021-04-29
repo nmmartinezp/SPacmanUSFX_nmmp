@@ -28,7 +28,7 @@ void Fruta::mostrar()
 			contadorTiempoNoVisible = 0;
 			visible = true;
 			activador_update = 0;
-			numeroFrame++;
+			numeroFramey++;
 		}
 		else { contadorTiempoNoVisible++; }
 	}

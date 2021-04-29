@@ -28,6 +28,7 @@ protected:
 	int activador_update;
 
 	int numeroFrame;
+	int numeroFramey;
 	int contadorFrames;
 	int framesMovimiento;
 

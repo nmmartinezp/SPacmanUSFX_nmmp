@@ -6,10 +6,10 @@ x.qqq.x.qqqq.x.qqq.x
 x.....x......x.....x
 wqqqv.wqq..qqz.yqqqz
 qqqqz..........wqqqq
-......yqqq qqv......
-qqqqv.x  b  fx.yqqqq
+......yqq  qqv......
+qqqqv.x  b   x.yqqqq
 yqqqz.wqqqqqqz.wqqqv
-x..................x
+x........f.........x
 x.qqqqqqqqqqqqqqqq.x
 x........p.........x
 wqqqqqqqqqqqqqqqqqqz

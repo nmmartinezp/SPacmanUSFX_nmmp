@@ -15,12 +15,13 @@ CommonGameProperties::CommonGameProperties(Texture* _ObjectTexture, int _posicio
 	idObjeto = MakeNumberObjects;
 	ObjectTexture = _ObjectTexture;
 	numeroFrame = 0;
+	numeroFramey = 0;
 	contadorFrames = 0;
 	framesMovimiento = 1;
 }
 
 void CommonGameProperties::render() {
-	SDL_Rect renderQuad = { 25 * numeroFrame, 0, ancho, alto };
+	SDL_Rect renderQuad = { 25 * numeroFrame, 25 * numeroFramey, ancho, alto };
 
 	//Render to screen
 	if (visible == true) {
@@ -39,8 +40,8 @@ void CommonGameProperties::update() {
 		}
 	}
 	if (activador_update == 2) {
-		if (numeroFrame > framesMovimiento - 1) {
-			numeroFrame = 0;
+		if (numeroFramey > framesMovimiento - 1) {
+			numeroFramey = 0;
 		}
 	}
 };
