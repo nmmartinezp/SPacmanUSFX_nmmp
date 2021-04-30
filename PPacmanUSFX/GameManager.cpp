@@ -17,10 +17,10 @@ int GameManager::onExecute() {
     }
 	srand(time(NULL));
 
-	MenuComponent[0] = new MenuComponents(titleTexture, 100, 100, 300, 80, SCREEN_WIDTH, SCREEN_HEIGHT);
-	MenuComponent[1] = new MenuComponents(logoTexture, 225, 185, 50, 50, SCREEN_WIDTH, SCREEN_HEIGHT);
+	MenuComponent[0] = new MenuComponents(titleTexture, 50, 100, 400, 100, SCREEN_WIDTH, SCREEN_HEIGHT);
+	MenuComponent[1] = new MenuComponents(logoTexture, 225, 210, 50, 50, SCREEN_WIDTH, SCREEN_HEIGHT);
 	MenuComponent[2] = new MenuComponents(botonTexture, 200, 245, 100, 30, SCREEN_WIDTH, SCREEN_HEIGHT);
-	MenuComponent[3] = new MenuComponents(pauseTexture, 100, 180, 300, 80, SCREEN_WIDTH, SCREEN_HEIGHT);
+	MenuComponent[3] = new MenuComponents(pauseTexture, 125, 200, 250, 80, SCREEN_WIDTH, SCREEN_HEIGHT);
 
     SDL_Event Event;
 
@@ -28,14 +28,14 @@ int GameManager::onExecute() {
         while (SDL_PollEvent(&Event)) {
             onEvent(&Event);
 			optionSelect(Event);
-			if (option == 1 || option == 4) {
+			if (option == Map || option == go) {
 				for (int i = 0; i < actores.size(); i++) {
 					actores[i]->handleEvent(Event);
 				}
 			}
         }
 
-		if (option == 1 || option == 4) {
+		if (option == Map || option == go) {
 			for (int i = 0; i < actores.size(); i++) {
 				actores[i]->move();
 				actores[i]->mostrar();
@@ -95,13 +95,13 @@ bool GameManager::onInit() {
 		Texture::renderer = gRenderer;
 		
 		titleTexture = new Texture();
-		titleTexture->loadFromImage("Resources/title.png");
+		titleTexture->loadFromImage("Resources/title2.png");
 		logoTexture = new Texture();
 		logoTexture->loadFromImage("Resources/fantasma01_v1.png");
 		botonTexture = new Texture();
 		botonTexture->loadFromImage("Resources/boton-start.png");
 		pauseTexture = new Texture();
-		pauseTexture->loadFromImage("Resources/pause.png");
+		pauseTexture->loadFromImage("Resources/pause_neon2.png");
 	}
 	
 	return success;
@@ -121,14 +121,14 @@ void GameManager::onRender() {
 		}
 	}
 
-	if (option == 1 || option == 4) {
+	if (option == Map || option == go) {
 		for (int i = 0; i < actores.size(); i++) {
 			actores[i]->update();
 			actores[i]->render();
 		}
 	}
 
-	if (option == 3) {
+	if (option == pause) {
 		
 		for (int i = 0; i < actores.size(); i++) {
 			actores[i]->update();
@@ -148,30 +148,27 @@ void GameManager::optionSelect(SDL_Event& e)
 		{
 		case SDLK_RETURN:
 			if (option == 0) {
-				option = 1;
+				option = Map;
 				brYdr();
 			}
 			break;
 		case SDLK_ESCAPE:
-			if (option == 1 || option == 3 || option == 4) {
+			if (option == Map || option == pause || option == go) {
 				option = 0;
 				brYdr();
 			}
 			break;
 		case SDLK_SPACE:
-			if (option == 1 || option == 4) {
-				option = 3;
+			if (option == Map || option == go) {
+				option = pause;
 				brYdr();
 				break;
 			}
-			if (option == 3) {
-				option = 4;
+			if (option == pause) {
+				option = go;
 				brYdr();
 				break;
 			}
-		/*case SDLK_ESCAPE:; break;*/
-			//case SDLK_LEFT: velocidadX -= velocidadPatron; break;
-			//case SDLK_RIGHT: velocidadX += velocidadPatron; break;
 		}
 	}
 	//// Si se ha soltado una tecla
@@ -189,7 +186,7 @@ void GameManager::optionSelect(SDL_Event& e)
 }
 
 void GameManager::brYdr() {
-	if (option == 1) {
+	if (option == Map) {
 		LevelGameGernerator = new MapGenerator(SCREEN_WIDTH, SCREEN_HEIGHT);
 		LevelGameGernerator->load("Resources/mapa.txt");
 		LevelGameGernerator->populate(actores);
@@ -200,10 +197,6 @@ void GameManager::brYdr() {
 			actores[i]->~CommonGameProperties();
 			actores[i]->destroyer();
 		}
-	}
-
-	if (option == 3) {
-
 	}
 }
 
