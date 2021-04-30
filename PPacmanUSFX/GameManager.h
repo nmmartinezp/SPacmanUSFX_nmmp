@@ -22,13 +22,13 @@ using namespace std;
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 500;
-const int SCREEN_HEIGHT = 450;
+const int SCREEN_HEIGHT = 480;
 
 class GameManager
 {
 private:
     bool juego_en_ejecucion;
-    int option = 2;
+    int option = 0;
     //The window we'll be rendering to
     SDL_Window* gWindow;
     //The window renderer
@@ -39,8 +39,9 @@ private:
     Texture* titleTexture;
     Texture* logoTexture;
     Texture* botonTexture;
+    Texture* pauseTexture;
 public:
-    MenuComponents* MenuComponent[3];
+    MenuComponents* MenuComponent[4];
     MapGenerator* LevelGameGernerator;
     vector<CommonGameProperties*> actores;
 public:
@@ -48,11 +49,12 @@ public:
     int onExecute();
     bool onInit();
     void onEvent(SDL_Event* Event);
-    void onLoop();
     void onRender();
     void onCleanup();
+    void brYdr();
     void optionSelect(SDL_Event& e);
-    SDL_Texture* loadTexture(string path);   
+    //SDL_Texture* loadTexture(string path);
+    //void onLoop();
 };
 
     

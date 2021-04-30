@@ -20,6 +20,8 @@ CommonGameProperties::CommonGameProperties(Texture* _ObjectTexture, int _posicio
 	framesMovimiento = 1;
 }
 
+CommonGameProperties::~CommonGameProperties() {};
+
 void CommonGameProperties::render() {
 	SDL_Rect renderQuad = { 25 * numeroFrame, 25 * numeroFramey, ancho, alto };
 
@@ -45,3 +47,7 @@ void CommonGameProperties::update() {
 		}
 	}
 };
+
+void CommonGameProperties::destroyer() {
+	ObjectTexture->free();
+}
