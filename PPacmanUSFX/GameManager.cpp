@@ -143,7 +143,8 @@ void GameManager::optionSelect(SDL_Event& e)
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_RETURN: option = 1; break;
-		case SDLK_ESCAPE: option = 2; break;
+		case SDLK_SPACE: option = 2; break;
+		/*case SDLK_ESCAPE:; break;*/
 			//case SDLK_LEFT: velocidadX -= velocidadPatron; break;
 			//case SDLK_RIGHT: velocidadX += velocidadPatron; break;
 		}
