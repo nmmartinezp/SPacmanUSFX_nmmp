@@ -12,8 +12,6 @@ class CommonGameProperties
 public:
 	string nombre;
 protected:
-	
-
 	int idObjeto;
 	int posicionX;
 	int posicionY;

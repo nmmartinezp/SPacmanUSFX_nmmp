@@ -98,7 +98,7 @@ bool MapGenerator::load(string path)
 				newObject = new Wall(wallTexture6, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(0);
 				break;
-			case '.':
+			case 'm':
 				newObject = new Coin(coinTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(10);
 				break;

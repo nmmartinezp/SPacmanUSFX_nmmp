@@ -13,9 +13,7 @@ private:
 
 	int contadorTiempoVisible;
 	int contadorTiempoNoVisible;
-
 public:
-
 	Fruta(Texture* _frutasTextures, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
 	
 	int getTiempoVisible() { return tiempoVisible; }
@@ -23,8 +21,6 @@ public:
 	
 	void setTiempoVisble(int _tiempoVisible) { tiempoVisible = _tiempoVisible; }
 	void setTiempoNoVisble(int _tiempoNoVisible) { tiempoNoVisible = _tiempoNoVisible; }
-
-	// Metodos varios
 
 	// Mostrar u ocultar fruta
 	void mostrar();

@@ -8,7 +8,6 @@
 
 class Fantasma : public CommonGameProperties{
 private:
-
 	//Velocity on axis X
 	int velocidadX;
 	//Velocity on axis Y

@@ -1,15 +1,18 @@
 yqqqqqqqqqqqqqqqqqqv
 x..................x
 x.qqq.qqq..qqq.qqq.x
-x..................x
+xm................mx
 x.qqq.x.qqqq.x.qqq.x
 x.....x......x.....x
-wqqqv.wqq..qqz.yqqqz
+wqqqv.x......x.yqqqz
+    x.wqq..qqz.x
 qqqqz..........wqqqq
 ......yqq  qqv......
 qqqqv.x  b   x.yqqqq
+    x.x      x.x    
+    x.x      x.x
 yqqqz.wqqqqqqz.wqqqv
 x........f.........x
-x.qqqqqqqqqqqqqqqq.x
+xmqqqqqqqqqqqqqqqqmx
 x........p.........x
 wqqqqqqqqqqqqqqqqqqz

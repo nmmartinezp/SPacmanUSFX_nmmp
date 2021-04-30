@@ -20,8 +20,8 @@
 using namespace std;
 
 //Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 500;
+const int SCREEN_HEIGHT = 450;
 
 class GameManager
 {
@@ -36,31 +36,13 @@ private:
 
     //The surface contained by the window
     SDL_Surface* gScreenSurface;
-
-    //Texture* frutasTextures[4];
-    //Texture* fantasmaTexture = nullptr;
-    //Texture* fantasma1Texture = nullptr;
-    //Texture* fantasma2Texture = nullptr;
-    //Texture* fantasma3Texture = nullptr;
-    //Texture* pacmanTexture = nullptr;
-    //Texture* coinTexture = nullptr;
- 
 public:
-    //Pacman* pacman;
-    //Fantasma* fantasma;
-    //Fantasma* fantasma1;
-    //Fantasma* fantasma2;
-    //Fantasma* fantasma3;
-    //Fruta* fruta;
-    //Coin* coin[10];
     MapGenerator* LevelGameGernerator;
     vector<CommonGameProperties*> actores;
 public:
     GameManager();
     int onExecute();
-    
     bool onInit();
-
     void onEvent(SDL_Event* Event);
     void onLoop();
     void onRender();

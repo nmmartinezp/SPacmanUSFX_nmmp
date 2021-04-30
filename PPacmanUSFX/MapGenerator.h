@@ -12,7 +12,6 @@
 #include "Fruta.h"
 #include "Wall.h"
 
-
 using namespace std;
 
 class MapGenerator
