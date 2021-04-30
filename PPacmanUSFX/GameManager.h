@@ -16,6 +16,7 @@
 #include "CommonGameProperties.h"
 #include "Texture.h"
 #include "MapGenerator.h"
+#include "MenuComponents.h"
 
 using namespace std;
 
@@ -27,16 +28,19 @@ class GameManager
 {
 private:
     bool juego_en_ejecucion;
-
+    int option = 2;
     //The window we'll be rendering to
     SDL_Window* gWindow;
-
     //The window renderer
     SDL_Renderer* gRenderer;
-
     //The surface contained by the window
     SDL_Surface* gScreenSurface;
+
+    Texture* titleTexture;
+    Texture* logoTexture;
+    Texture* botonTexture;
 public:
+    MenuComponents* MenuComponent[3];
     MapGenerator* LevelGameGernerator;
     vector<CommonGameProperties*> actores;
 public:
@@ -47,6 +51,7 @@ public:
     void onLoop();
     void onRender();
     void onCleanup();
+    void optionSelect(SDL_Event& e);
     SDL_Texture* loadTexture(string path);   
 };
 

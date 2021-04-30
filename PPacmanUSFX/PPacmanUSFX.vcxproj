@@ -26,6 +26,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
+    <ClCompile Include="MenuComponents.cpp" />
     <ClCompile Include="Pacman.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Wall.cpp" />
@@ -37,6 +38,7 @@
     <ClInclude Include="Fruta.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="MapGenerator.h" />
+    <ClInclude Include="MenuComponents.h" />
     <ClInclude Include="Pacman.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Wall.h" />

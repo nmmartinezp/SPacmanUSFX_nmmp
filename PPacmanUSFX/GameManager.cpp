@@ -17,6 +17,10 @@ int GameManager::onExecute() {
     }
 	srand(time(NULL));
 
+	MenuComponent[0] = new MenuComponents(titleTexture, 100, 100, 300, 80, SCREEN_WIDTH, SCREEN_HEIGHT);
+	MenuComponent[1] = new MenuComponents(logoTexture, 225, 185, 50, 50, SCREEN_WIDTH, SCREEN_HEIGHT);
+	MenuComponent[2] = new MenuComponents(botonTexture, 200, 245, 100, 30, SCREEN_WIDTH, SCREEN_HEIGHT);
+
 	LevelGameGernerator = new MapGenerator(SCREEN_WIDTH, SCREEN_HEIGHT);
 	LevelGameGernerator->load("Resources/mapa.txt");
 	LevelGameGernerator->populate(actores);
@@ -26,15 +30,19 @@ int GameManager::onExecute() {
     while (juego_en_ejecucion) {
         while (SDL_PollEvent(&Event)) {
             onEvent(&Event);
-			for (int i = 0; i < actores.size(); i++) {
-				actores[i]->handleEvent(Event);
+			optionSelect(Event);
+			if (option == 1) {
+				for (int i = 0; i < actores.size(); i++) {
+					actores[i]->handleEvent(Event);
+				}
 			}
-			//pacman->handleEvent(Event);
         }
 
-		for (int i = 0; i < actores.size(); i++) {
-			actores[i]->move();
-			actores[i]->mostrar();
+		if (option == 1) {
+			for (int i = 0; i < actores.size(); i++) {
+				actores[i]->move();
+				actores[i]->mostrar();
+			}
 		}
 
 		//Clear screen
@@ -89,7 +97,13 @@ bool GameManager::onInit() {
 		}
 
 		Texture::renderer = gRenderer;
-
+		
+		titleTexture = new Texture();
+		titleTexture->loadFromImage("Resources/title.png");
+		logoTexture = new Texture();
+		logoTexture->loadFromImage("Resources/fantasma01_v1.png");
+		botonTexture = new Texture();
+		botonTexture->loadFromImage("Resources/boton-start.png");
 	}
 	
 	return success;
@@ -104,11 +118,49 @@ void GameManager::onEvent(SDL_Event* Event) {
 void GameManager::onLoop() {};
 
 void GameManager::onRender() {
-	for (int i = 0; i < actores.size(); i++) {
-		actores[i]->update();
-		actores[i]->render();
+	
+	if (option == 2) {
+		for (int i = 0; i < 3; i++) {
+			MenuComponent[i]->render();
+		}
+		
+	}
+
+	if (option == 1) {
+		for (int i = 0; i < actores.size(); i++) {
+			actores[i]->update();
+			actores[i]->render();
+		}
 	}
 };
+
+void GameManager::optionSelect(SDL_Event& e)
+{
+	// Si se ha precionado una tecla
+	if (e.type == SDL_KEYDOWN && e.key.repeat == 0)
+	{
+		// Se ajusta la velocidad
+		switch (e.key.keysym.sym)
+		{
+		case SDLK_RETURN: option = 1; break;
+		case SDLK_ESCAPE: option = 2; break;
+			//case SDLK_LEFT: velocidadX -= velocidadPatron; break;
+			//case SDLK_RIGHT: velocidadX += velocidadPatron; break;
+		}
+	}
+	//// Si se ha soltado una tecla
+	//else if (e.type == SDL_KEYUP && e.key.repeat == 0)
+	//{
+	//	// Se ajusta la velocidad
+	//	switch (e.key.keysym.sym)
+	//	{
+	//	case SDLK_UP: velocidadY += velocidadPatron; break;
+	//	case SDLK_DOWN: velocidadY -= velocidadPatron; break;
+	//	case SDLK_LEFT: velocidadX += velocidadPatron; break;
+	//	case SDLK_RIGHT: velocidadX -= velocidadPatron; break;
+	//	}
+	//}
+}
 
 void GameManager::onCleanup() {
 	SDL_FreeSurface(gScreenSurface);
