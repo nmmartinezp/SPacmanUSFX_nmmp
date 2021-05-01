@@ -190,7 +190,10 @@ void GameManager::optionSelect(SDL_Event& e)
 				break;
 			}
 			if (option == 0) {
+				Mix_FreeMusic(MenuMusic);
+				MenuMusic = nullptr;
 				SDL_FreeSurface(gScreenSurface);
+				Mix_Quit();
 				SDL_Quit();
 			}
 		case SDLK_SPACE:
