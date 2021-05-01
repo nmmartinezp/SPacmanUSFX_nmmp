@@ -64,7 +64,7 @@ bool MapGenerator::load(string path)
 
 			case 'p':
 				newObject = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
-				newObject->setParametrosAnimacion(0);
+				newObject->setParametrosAnimacion(6);
 				break;
 			case 'b':
 				newObject = new Fantasma(fantasma1Texture, 0, 0, 25, 25, anchoPantalla, altoPantalla, 3);

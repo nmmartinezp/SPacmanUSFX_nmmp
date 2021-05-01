@@ -25,7 +25,7 @@ protected:
 	bool visible;
 	int activador_update;
 
-	int numeroFrame;
+	int numeroFramex;
 	int numeroFramey;
 	int contadorFrames;
 	int framesMovimiento;

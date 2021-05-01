@@ -19,7 +19,7 @@ class MapGenerator
 private:
 	vector<CommonGameProperties*> vectorObjetosJuego;
 
-	const string pathPacman = "Resources/PacMan_01.bmp";
+	const string pathPacman = "Resources/pacman_01.png";
 	const string pathFantasma1 = "Resources/Fantasma01.png";
 	const string pathFantasma2 = "Resources/Fantasma01.bmp";
 	const string pathFantasma3 = "Resources/Fantasma01.bmp";

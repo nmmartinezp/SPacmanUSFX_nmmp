@@ -14,7 +14,7 @@ CommonGameProperties::CommonGameProperties(Texture* _ObjectTexture, int _posicio
 	MakeNumberObjects++;
 	idObjeto = MakeNumberObjects;
 	ObjectTexture = _ObjectTexture;
-	numeroFrame = 0;
+	numeroFramex = 0;
 	numeroFramey = 0;
 	contadorFrames = 0;
 	framesMovimiento = 1;
@@ -23,7 +23,7 @@ CommonGameProperties::CommonGameProperties(Texture* _ObjectTexture, int _posicio
 CommonGameProperties::~CommonGameProperties() {};
 
 void CommonGameProperties::render() {
-	SDL_Rect renderQuad = { 25 * numeroFrame, 25 * numeroFramey, ancho, alto };
+	SDL_Rect renderQuad = { 25 * numeroFramex, 25 * numeroFramey, ancho, alto };
 
 	//Render to screen
 	if (visible == true) {
@@ -34,10 +34,10 @@ void CommonGameProperties::render() {
 void CommonGameProperties::update() {
 	if (activador_update == 1) {
 		contadorFrames++;
-		numeroFrame = contadorFrames / 8;
+		numeroFramex = contadorFrames / 8;
 
-		if (numeroFrame > framesMovimiento - 1) {
-			numeroFrame = 0;
+		if (numeroFramex > framesMovimiento - 1) {
+			numeroFramex = 0;
 			contadorFrames = 0;
 		}
 	}

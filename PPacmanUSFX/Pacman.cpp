@@ -16,10 +16,18 @@ void Pacman::handleEvent(SDL_Event& e)
 		// Se ajusta la velocidad
 		switch (e.key.keysym.sym)
 		{
-		case SDLK_UP: velocidadY -= velocidadPatron; break;
-		case SDLK_DOWN: velocidadY += velocidadPatron; break;
-		case SDLK_LEFT: velocidadX -= velocidadPatron; break;
-		case SDLK_RIGHT: velocidadX += velocidadPatron; break;
+		case SDLK_UP:
+			numeroFramey = 3;
+			velocidadY -= velocidadPatron; break;
+		case SDLK_DOWN:
+			numeroFramey = 2;
+			velocidadY += velocidadPatron; break;
+		case SDLK_LEFT:
+			numeroFramey = 1;
+			velocidadX -= velocidadPatron; break;
+		case SDLK_RIGHT:
+			numeroFramey = 0;
+			velocidadX += velocidadPatron; break;
 		}
 	}
 	// Si se ha soltado una tecla
@@ -28,10 +36,14 @@ void Pacman::handleEvent(SDL_Event& e)
 		// Se ajusta la velocidad
 		switch (e.key.keysym.sym)
 		{
-		case SDLK_UP: velocidadY += velocidadPatron; break;
-		case SDLK_DOWN: velocidadY -= velocidadPatron; break;
-		case SDLK_LEFT: velocidadX += velocidadPatron; break;
-		case SDLK_RIGHT: velocidadX -= velocidadPatron; break;
+		case SDLK_UP: 
+			velocidadY += velocidadPatron; break;
+		case SDLK_DOWN: 
+			velocidadY -= velocidadPatron; break;
+		case SDLK_LEFT: 
+			velocidadX += velocidadPatron; break;
+		case SDLK_RIGHT: 
+			velocidadX -= velocidadPatron; break;
 		}
 	}
 
