@@ -55,10 +55,10 @@ public:
     GameManager();
     int onExecute();
     bool onInit();
-    bool loadsound();
+    bool playsound();
     void onEvent(SDL_Event* Event);
     void onRender();
-    void stopmusic();
+    void stopsound();
     void onCleanup();
     void brYdr();
     void optionSelect(SDL_Event& e);

@@ -16,14 +16,14 @@ int GameManager::onExecute() {
         return -1;
     }
 	srand(time(NULL));
-	loadsound();
-	Mix_PlayMusic(MenuMusic, -1);
+	
 	MenuComponent[0] = new MenuComponents(titleTexture, 50, 100, 400, 100, SCREEN_WIDTH, SCREEN_HEIGHT);
 	MenuComponent[1] = new MenuComponents(logoTexture, 225, 210, 50, 50, SCREEN_WIDTH, SCREEN_HEIGHT);
 	MenuComponent[2] = new MenuComponents(botonTexture, 175, 270, 150, 70, SCREEN_WIDTH, SCREEN_HEIGHT);
 	MenuComponent[3] = new MenuComponents(barraTexture, 0, 450, 500, 30, SCREEN_WIDTH, SCREEN_HEIGHT);
 	MenuComponent[4] = new MenuComponents(pauseTexture, 125, 200, 250, 80, SCREEN_WIDTH, SCREEN_HEIGHT);
 
+	playsound();
     SDL_Event Event;
 
     while (juego_en_ejecucion) {
@@ -44,7 +44,7 @@ int GameManager::onExecute() {
 			}
 		}
 
-		stopmusic();
+		stopsound();
 		//Clear screen
 		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);
 		SDL_RenderClear(gRenderer);
@@ -117,7 +117,7 @@ bool GameManager::onInit() {
 	return success;
 };
 
-bool GameManager::loadsound() {
+bool GameManager::playsound() {
 	int success = true;
 	MenuMusic = Mix_LoadMUS("sound/Pacman_theme.mp3");
 	if (MenuMusic == nullptr)
@@ -125,10 +125,11 @@ bool GameManager::loadsound() {
 		printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
 		success = false;
 	}
+	Mix_PlayMusic(MenuMusic, -1);
 	return success;
 }
 
-void GameManager::stopmusic() {
+void GameManager::stopsound() {
 	if (option != 0) {
 		Mix_HaltMusic();
 		Mix_FreeMusic(MenuMusic);
@@ -183,8 +184,7 @@ void GameManager::optionSelect(SDL_Event& e)
 			break;
 		case SDLK_ESCAPE:
 			if (option == Map || option == pause || option == go) {
-				loadsound();
-				Mix_PlayMusic(MenuMusic, -1);
+				playsound();;
 				option = 0;
 				brYdr();
 				break;
