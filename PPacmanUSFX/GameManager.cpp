@@ -6,7 +6,7 @@ GameManager::GameManager() {
 	gWindow = nullptr;
 	gRenderer = nullptr;
 	gScreenSurface = nullptr;
-
+	MenuMusic = nullptr;
 	juego_en_ejecucion = true;
 	
 }
@@ -16,7 +16,8 @@ int GameManager::onExecute() {
         return -1;
     }
 	srand(time(NULL));
-
+	loadsound();
+	Mix_PlayMusic(MenuMusic, -1);
 	MenuComponent[0] = new MenuComponents(titleTexture, 50, 100, 400, 100, SCREEN_WIDTH, SCREEN_HEIGHT);
 	MenuComponent[1] = new MenuComponents(logoTexture, 225, 210, 50, 50, SCREEN_WIDTH, SCREEN_HEIGHT);
 	MenuComponent[2] = new MenuComponents(botonTexture, 175, 270, 150, 70, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -35,7 +36,7 @@ int GameManager::onExecute() {
 				}
 			}
         }
-
+		
 		if (option == Map || option == go) {
 			for (int i = 0; i < actores.size(); i++) {
 				actores[i]->move();
@@ -43,10 +44,10 @@ int GameManager::onExecute() {
 			}
 		}
 
+		stopmusic();
 		//Clear screen
 		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);
 		SDL_RenderClear(gRenderer);
-
 		//Update screen
         onRender();
 		SDL_RenderPresent(gRenderer);
@@ -61,7 +62,7 @@ bool GameManager::onInit() {
 	bool success = true;
 
 	//Initialize SDL
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
 	{
 		cout << "SDL could not initialize! SDL_Error: " << SDL_GetError() << endl;
 		success = false;
@@ -88,6 +89,12 @@ bool GameManager::onInit() {
 			{
 				//Initialize renderer color
 				SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+
+				if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+				{
+					printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
+					success = false;
+				}
 			}
 			//Get window surface
 			gScreenSurface = SDL_GetWindowSurface(gWindow);
@@ -109,6 +116,25 @@ bool GameManager::onInit() {
 	
 	return success;
 };
+
+bool GameManager::loadsound() {
+	int success = true;
+	MenuMusic = Mix_LoadMUS("sound/Pacman_theme.mp3");
+	if (MenuMusic == nullptr)
+	{
+		printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
+		success = false;
+	}
+	return success;
+}
+
+void GameManager::stopmusic() {
+	if (option != 0) {
+		Mix_HaltMusic();
+		Mix_FreeMusic(MenuMusic);
+		MenuMusic = nullptr;
+	}
+}
 
 void GameManager::onEvent(SDL_Event* Event) {
 	if (Event->type == SDL_QUIT) {
@@ -157,6 +183,8 @@ void GameManager::optionSelect(SDL_Event& e)
 			break;
 		case SDLK_ESCAPE:
 			if (option == Map || option == pause || option == go) {
+				loadsound();
+				Mix_PlayMusic(MenuMusic, -1);
 				option = 0;
 				brYdr();
 				break;
@@ -196,7 +224,9 @@ void GameManager::brYdr() {
 }
 
 void GameManager::onCleanup() {
+	Mix_FreeMusic(MenuMusic);
+	MenuMusic = nullptr;
 	SDL_FreeSurface(gScreenSurface);
-	
+	Mix_Quit();
 	SDL_Quit();
 };

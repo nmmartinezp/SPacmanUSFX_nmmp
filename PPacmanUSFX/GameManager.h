@@ -7,6 +7,7 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 
 #include "Pacman.h"
 #include "Fantasma.h"
@@ -44,6 +45,8 @@ private:
     Texture* botonTexture;
     Texture* pauseTexture;
     Texture* barraTexture;
+
+    Mix_Music* MenuMusic;
 public:
     MenuComponents* MenuComponent[5];
     MapGenerator* LevelGameGernerator;
@@ -52,8 +55,10 @@ public:
     GameManager();
     int onExecute();
     bool onInit();
+    bool loadsound();
     void onEvent(SDL_Event* Event);
     void onRender();
+    void stopmusic();
     void onCleanup();
     void brYdr();
     void optionSelect(SDL_Event& e);
