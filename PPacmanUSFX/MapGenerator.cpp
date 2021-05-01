@@ -31,6 +31,8 @@ MapGenerator::MapGenerator(int _anchoPantalla, int _altoPantalla)
 	wallTexture5->loadFromImage(pathWall5);
 	wallTexture6 = new Texture();
 	wallTexture6->loadFromImage(pathWall6);
+	barraTexture = new Texture();
+	barraTexture->loadFromImage(pathBarra);
 }
 
 bool MapGenerator::load(string path)
@@ -102,8 +104,12 @@ bool MapGenerator::load(string path)
 				newObject = new Coin(coinTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(10);
 				break;
-			
+			case 'k':
+				newObject = new Wall(barraTexture, x * 25, y * 25, 500, 30, anchoPantalla, altoPantalla);
+				newObject->setParametrosAnimacion(0);
+				break;
 			}
+
 
 			// If the object was created, add it to the vector
 			if (newObject != nullptr)

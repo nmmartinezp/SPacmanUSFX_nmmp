@@ -43,8 +43,9 @@ private:
     Texture* logoTexture;
     Texture* botonTexture;
     Texture* pauseTexture;
+    Texture* barraTexture;
 public:
-    MenuComponents* MenuComponent[4];
+    MenuComponents* MenuComponent[5];
     MapGenerator* LevelGameGernerator;
     vector<CommonGameProperties*> actores;
 public:

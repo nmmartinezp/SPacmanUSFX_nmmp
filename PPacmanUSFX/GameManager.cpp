@@ -19,8 +19,9 @@ int GameManager::onExecute() {
 
 	MenuComponent[0] = new MenuComponents(titleTexture, 50, 100, 400, 100, SCREEN_WIDTH, SCREEN_HEIGHT);
 	MenuComponent[1] = new MenuComponents(logoTexture, 225, 210, 50, 50, SCREEN_WIDTH, SCREEN_HEIGHT);
-	MenuComponent[2] = new MenuComponents(botonTexture, 200, 245, 100, 30, SCREEN_WIDTH, SCREEN_HEIGHT);
-	MenuComponent[3] = new MenuComponents(pauseTexture, 125, 200, 250, 80, SCREEN_WIDTH, SCREEN_HEIGHT);
+	MenuComponent[2] = new MenuComponents(botonTexture, 175, 270, 150, 70, SCREEN_WIDTH, SCREEN_HEIGHT);
+	MenuComponent[3] = new MenuComponents(barraTexture, 0, 450, 500, 30, SCREEN_WIDTH, SCREEN_HEIGHT);
+	MenuComponent[4] = new MenuComponents(pauseTexture, 125, 200, 250, 80, SCREEN_WIDTH, SCREEN_HEIGHT);
 
     SDL_Event Event;
 
@@ -99,9 +100,11 @@ bool GameManager::onInit() {
 		logoTexture = new Texture();
 		logoTexture->loadFromImage("Resources/fantasma01_v1.png");
 		botonTexture = new Texture();
-		botonTexture->loadFromImage("Resources/boton-start.png");
+		botonTexture->loadFromImage("Resources/start_neon1.png");
 		pauseTexture = new Texture();
 		pauseTexture->loadFromImage("Resources/pause_neon2.png");
+		barraTexture = new Texture();
+		barraTexture->loadFromImage("Resources/barra_menu.png");
 	}
 	
 	return success;
@@ -116,7 +119,7 @@ void GameManager::onEvent(SDL_Event* Event) {
 void GameManager::onRender() {
 	
 	if (option == 0) {
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 4; i++) {
 			MenuComponent[i]->render();
 		}
 	}
@@ -134,7 +137,7 @@ void GameManager::onRender() {
 			actores[i]->update();
 			actores[i]->render();
 		}
-		MenuComponent[3]->render();
+		MenuComponent[4]->render();
 	}
 };
 
@@ -156,8 +159,12 @@ void GameManager::optionSelect(SDL_Event& e)
 			if (option == Map || option == pause || option == go) {
 				option = 0;
 				brYdr();
+				break;
 			}
-			break;
+			if (option == 0) {
+				SDL_FreeSurface(gScreenSurface);
+				SDL_Quit();
+			}
 		case SDLK_SPACE:
 			if (option == Map || option == go) {
 				option = pause;

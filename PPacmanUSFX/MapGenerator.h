@@ -32,6 +32,7 @@ private:
 	const string pathWall4 = "Resources/codo2.png";
 	const string pathWall5 = "Resources/codo3.png";
 	const string pathWall6 = "Resources/codo4.png";
+	const string pathBarra = "Resources/barra_game.png";
 
 	Texture* frutasTextures;
 	Texture* fantasma1Texture = nullptr;
@@ -46,6 +47,7 @@ private:
 	Texture* wallTexture4 = nullptr;
 	Texture* wallTexture5 = nullptr;
 	Texture* wallTexture6 = nullptr;
+	Texture* barraTexture = nullptr;
 
 	int anchoPantalla;
 	int altoPantalla;
