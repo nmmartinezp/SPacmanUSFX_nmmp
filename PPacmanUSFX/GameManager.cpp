@@ -178,18 +178,6 @@ void GameManager::optionSelect(SDL_Event& e)
 			}
 		}
 	}
-	//// Si se ha soltado una tecla
-	//else if (e.type == SDL_KEYUP && e.key.repeat == 0)
-	//{
-	//	// Se ajusta la velocidad
-	//	switch (e.key.keysym.sym)
-	//	{
-	//	case SDLK_UP: velocidadY += velocidadPatron; break;
-	//	case SDLK_DOWN: velocidadY -= velocidadPatron; break;
-	//	case SDLK_LEFT: velocidadX += velocidadPatron; break;
-	//	case SDLK_RIGHT: velocidadX -= velocidadPatron; break;
-	//	}
-	//}
 }
 
 void GameManager::brYdr() {
