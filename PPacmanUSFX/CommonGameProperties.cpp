@@ -20,7 +20,9 @@ CommonGameProperties::CommonGameProperties(Texture* _ObjectTexture, int _posicio
 	framesMovimiento = 1;
 }
 
-CommonGameProperties::~CommonGameProperties() {};
+CommonGameProperties::~CommonGameProperties() {
+	destroyer();
+};
 
 void CommonGameProperties::render() {
 	SDL_Rect renderQuad = { 25 * numeroFramex, 25 * numeroFramey, ancho, alto };

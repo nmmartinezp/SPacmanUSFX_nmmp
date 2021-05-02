@@ -184,17 +184,13 @@ void GameManager::optionSelect(SDL_Event& e)
 			break;
 		case SDLK_ESCAPE:
 			if (option == Map || option == pause || option == go) {
-				playsound();;
+				playsound();
 				option = 0;
 				brYdr();
 				break;
 			}
 			if (option == 0) {
-				Mix_FreeMusic(MenuMusic);
-				MenuMusic = nullptr;
-				SDL_FreeSurface(gScreenSurface);
-				Mix_Quit();
-				SDL_Quit();
+				onCleanup();
 			}
 		case SDLK_SPACE:
 			if (option == Map || option == go) {
@@ -221,7 +217,7 @@ void GameManager::brYdr() {
 	if (option == 0) {
 		for (int i = 0; i < actores.size(); i++) {
 			actores[i]->~CommonGameProperties();
-			actores[i]->destroyer();
+			//actores[i]->destroyer();
 		}
 	}
 }
