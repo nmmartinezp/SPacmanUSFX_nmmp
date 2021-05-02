@@ -45,10 +45,8 @@ int GameManager::onExecute() {
 		}
 
 		stopsound();
-		//Clear screen
 		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);
 		SDL_RenderClear(gRenderer);
-		//Update screen
         onRender();
 		SDL_RenderPresent(gRenderer);
     }
