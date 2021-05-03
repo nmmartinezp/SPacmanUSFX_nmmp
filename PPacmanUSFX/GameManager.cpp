@@ -3,6 +3,10 @@
 using namespace std;
 
 GameManager::GameManager() {
+	option = 0;
+	Map = 1;
+	pause = 2;
+	go = 3;
 	gWindow = nullptr;
 	gRenderer = nullptr;
 	gScreenSurface = nullptr;
