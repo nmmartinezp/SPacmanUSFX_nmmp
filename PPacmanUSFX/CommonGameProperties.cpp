@@ -9,7 +9,9 @@ CommonGameProperties::CommonGameProperties(Texture* _ObjectTexture, int _posicio
 	alto = _alto;
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
-	activador_update = 1;
+	disable_change = 0;
+	activate_change = 1;
+	activador_update = activate_change;
 	visible = true;
 	MakeNumberObjects++;
 	idObjeto = MakeNumberObjects;
@@ -34,18 +36,13 @@ void CommonGameProperties::render() {
 };
 
 void CommonGameProperties::update() {
-	if (activador_update == 1) {
+	if (activador_update == activate_change) {
 		contadorFrames++;
 		numeroFramex = contadorFrames / 8;
 
 		if (numeroFramex > framesMovimiento - 1) {
 			numeroFramex = 0;
 			contadorFrames = 0;
-		}
-	}
-	if (activador_update == 2) {
-		if (numeroFramey > framesMovimiento - 1) {
-			numeroFramey = 0;
 		}
 	}
 };

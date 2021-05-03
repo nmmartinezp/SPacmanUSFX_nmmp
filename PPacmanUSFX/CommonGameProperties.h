@@ -24,6 +24,8 @@ protected:
 
 	bool visible;
 	int activador_update;
+	int disable_change;
+	int activate_change;
 
 	int numeroFramex;
 	int numeroFramey;

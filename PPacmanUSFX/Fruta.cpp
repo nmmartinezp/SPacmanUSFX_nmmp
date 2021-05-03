@@ -11,7 +11,8 @@ Fruta::Fruta(Texture* _frutasTextures, int _posicionX, int _posicionY, int _anch
 	contadorTiempoVisible = 0;
 	contadorTiempoNoVisible = 0;
 	visible = false;
-	activador_update = 0;
+	activador_update = disable_change;
+	change_Fruit = 0;
 }
 
 void Fruta::mostrar()
@@ -19,7 +20,8 @@ void Fruta::mostrar()
 	if (contadorTiempoVisible >= tiempoVisible) 
 	{
 		visible = false;
-		activador_update = 2;
+		change_Fruit = rand() % 4;
+		numeroFramey = change_Fruit;
 		if (contadorTiempoNoVisible >= tiempoNoVisible) 
 		{
 			posicionX = rand() % (anchoPantalla - ancho);
@@ -27,8 +29,6 @@ void Fruta::mostrar()
 			contadorTiempoVisible = 0;
 			contadorTiempoNoVisible = 0;
 			visible = true;
-			activador_update = 0;
-			numeroFramey++;
 		}
 		else { contadorTiempoNoVisible++; }
 	}
