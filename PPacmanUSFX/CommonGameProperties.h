@@ -23,9 +23,9 @@ protected:
 	int altoPantalla;
 
 	bool visible;
-	int activador_update;
-	int disable_change;
-	int activate_change;
+	bool activador_update;
+	bool disable_change;
+	bool activate_change;
 
 	int numeroFramex;
 	int numeroFramey;

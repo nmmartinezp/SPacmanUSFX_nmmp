@@ -9,8 +9,8 @@ CommonGameProperties::CommonGameProperties(Texture* _ObjectTexture, int _posicio
 	alto = _alto;
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
-	disable_change = 0;
-	activate_change = 1;
+	disable_change = false;
+	activate_change = true;
 	activador_update = activate_change;
 	visible = true;
 	MakeNumberObjects++;
