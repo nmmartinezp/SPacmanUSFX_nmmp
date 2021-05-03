@@ -10,11 +10,11 @@ MapGenerator::MapGenerator(int _anchoPantalla, int _altoPantalla)
 	fantasma1Texture = new Texture();
 	fantasma1Texture->loadFromImage(pathFantasma1);
 	fantasma2Texture = new Texture();
-	fantasma2Texture->loadFromImage(pathFantasma2);
+	fantasma2Texture->loadFromImage(pathFantasma1);
 	fantasma3Texture = new Texture();
-	fantasma3Texture->loadFromImage(pathFantasma3);
+	fantasma3Texture->loadFromImage(pathFantasma1);
 	fantasma4Texture = new Texture();
-	fantasma4Texture->loadFromImage(pathFantasma4);
+	fantasma4Texture->loadFromImage(pathFantasma1);
 	frutasTextures = new Texture();
 	frutasTextures->loadFromImage(pathFrutas);
 	coinTexture = new Texture();
@@ -69,7 +69,19 @@ bool MapGenerator::load(string path)
 				newObject->setParametrosAnimacion(6);
 				break;
 			case 'b':
-				newObject = new Fantasma(fantasma1Texture, 0, 0, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject = new Fantasma(fantasma1Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject->setParametrosAnimacion(4);
+				break;
+			case 'c':
+				newObject = new Fantasma(fantasma2Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject->setParametrosAnimacion(4);
+				break;
+			case 'd':
+				newObject = new Fantasma(fantasma3Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				newObject->setParametrosAnimacion(4);
+				break;
+			case 'e':
+				newObject = new Fantasma(fantasma4Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
 				newObject->setParametrosAnimacion(4);
 				break;
 			case 'f':

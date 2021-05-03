@@ -207,7 +207,7 @@ void GameManager::optionSelect(SDL_Event& e)
 
 void GameManager::brYdr() {
 	if (option == Map) {
-		LevelGameGernerator = new MapGenerator(SCREEN_WIDTH, SCREEN_HEIGHT);
+		LevelGameGernerator = new MapGenerator(SCREEN_WIDTH, SCREEN_HEIGHT - 30);
 		LevelGameGernerator->load("Resources/mapa.txt");
 		LevelGameGernerator->populate(actores);
 	}

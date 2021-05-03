@@ -8,9 +8,9 @@ wqqqv.x......x.yqqqz
     x.wqq..qqz.x
 qqqqz..........wqqqq
 ......yqq  qqv......
-qqqqv.x  b   x.yqqqq
+qqqqv.x b  c x.yqqqq
     x.x      x.x    
-    x.x      x.x
+    x.x d  e x.x
 yqqqz.wqqqqqqz.wqqqv
 x........f.........x
 xmqqqqqqqqqqqqqqqqmx
