@@ -12,7 +12,6 @@ Fruta::Fruta(Texture* _frutasTextures, int _posicionX, int _posicionY, int _anch
 	contadorTiempoNoVisible = 0;
 	visible = false;
 	activador_update = disable_change;
-	change_Fruit = 0;
 }
 
 void Fruta::mostrar()
