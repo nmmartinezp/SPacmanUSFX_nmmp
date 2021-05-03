@@ -29,7 +29,7 @@ class GameManager
 {
 private:
     bool juego_en_ejecucion;
-    int option, Map, pause, go;
+    int option, menu, Map, pause, go;
     //The window we'll be rendering to
     SDL_Window* gWindow;
     //The window renderer

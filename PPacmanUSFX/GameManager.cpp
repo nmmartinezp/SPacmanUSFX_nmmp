@@ -3,7 +3,8 @@
 using namespace std;
 
 GameManager::GameManager() {
-	option = 0;
+	menu = 0;
+	option = menu;
 	Map = 1;
 	pause = 2;
 	go = 3;
@@ -132,7 +133,7 @@ bool GameManager::playsound() {
 }
 
 void GameManager::stopsound() {
-	if (option != 0) {
+	if (option != menu) {
 		Mix_HaltMusic();
 		Mix_FreeMusic(MenuMusic);
 		MenuMusic = nullptr;
@@ -147,7 +148,7 @@ void GameManager::onEvent(SDL_Event* Event) {
 
 void GameManager::onRender() {
 	
-	if (option == 0) {
+	if (option == menu) {
 		for (int i = 0; i < 4; i++) {
 			MenuComponent[i]->render();
 		}
@@ -179,7 +180,7 @@ void GameManager::optionSelect(SDL_Event& e)
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_RETURN:
-			if (option == 0) {
+			if (option == menu) {
 				option = Map;
 				brYdr();
 			}
@@ -187,11 +188,11 @@ void GameManager::optionSelect(SDL_Event& e)
 		case SDLK_ESCAPE:
 			if (option == Map || option == pause || option == go) {
 				playsound();
-				option = 0;
+				option = menu;
 				brYdr();
 				break;
 			}
-			if (option == 0) {
+			if (option == menu) {
 				onCleanup();
 			}
 		case SDLK_SPACE:
@@ -216,10 +217,9 @@ void GameManager::brYdr() {
 		LevelGameGernerator->populate(actores);
 	}
 
-	if (option == 0) {
+	if (option == menu) {
 		for (int i = 0; i < actores.size(); i++) {
 			actores[i]->~CommonGameProperties();
-			//actores[i]->destroyer();
 		}
 	}
 }
