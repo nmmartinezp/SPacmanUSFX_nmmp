@@ -10,7 +10,7 @@ MapGenerator::MapGenerator(int _anchoPantalla, int _altoPantalla)
 	fantasma1Texture = new Texture();
 	fantasma1Texture->loadFromImage(pathFantasma1);
 	fantasma2Texture = new Texture();
-	fantasma2Texture->loadFromImage(pathFantasma1);
+	fantasma2Texture->loadFromImage(pathFantasma2);
 	fantasma3Texture = new Texture();
 	fantasma3Texture->loadFromImage(pathFantasma1);
 	fantasma4Texture = new Texture();

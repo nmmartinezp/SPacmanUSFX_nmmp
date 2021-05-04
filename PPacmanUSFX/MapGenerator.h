@@ -21,7 +21,7 @@ private:
 
 	const string pathPacman = "Resources/pacman_01.png";
 	const string pathFantasma1 = "Resources/Fantasma01.png";
-	const string pathFantasma2 = "Resources/Fantasma01.bmp";
+	const string pathFantasma2 = "Resources/Fantasma02.png";
 	const string pathFantasma3 = "Resources/Fantasma01.bmp";
 	const string pathFantasma4 = "Resources/Fantasma01.bmp";
 	const string pathFrutas = "Resources/Frutas.png";
