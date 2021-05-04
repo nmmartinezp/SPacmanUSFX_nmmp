@@ -58,7 +58,9 @@ public:
 	void setAltoPantalla(int _altoPantalla) { altoPantalla = _altoPantalla; }
 	void setVisible(bool _visible) { visible = _visible; }
 
-	void setParametrosAnimacion(int _framesMovimiento) { framesMovimiento = _framesMovimiento; }
+	//template para laboratorio :V
+	template <class Universal>
+	void setParametrosAnimacion(Universal _framesMovimiento) { framesMovimiento = _framesMovimiento; }
 
 	//render de imagen
 	virtual void render();
