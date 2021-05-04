@@ -26,8 +26,8 @@ void Fantasma::move()
 				posicionXDestino = 1 + rand() % (anchoPantalla - ancho);
 				//random movement
 				RandMove = rand() % 2;
-				if (posicionX > posicionXDestino) { incrementoPosicionX = -1; }
-				else { incrementoPosicionX = 1; }
+				if (posicionX > posicionXDestino) { incrementoPosicionX = -1; numeroFramey = 1; }
+				else { incrementoPosicionX = 1; numeroFramey = 0;}
 			}
 			else { posicionX = posicionX + incrementoPosicionX * velocidadX; }
 		}
@@ -38,8 +38,8 @@ void Fantasma::move()
 				posicionXDestino = 1 + rand() % (anchoPantalla - ancho);
 				//random movement
 				RandMove = rand() % 2;
-				if (posicionX > posicionXDestino) { incrementoPosicionX = -1; }
-				else { incrementoPosicionX = 1; }
+				if (posicionX > posicionXDestino) { incrementoPosicionX = -1; numeroFramey = 1; }
+				else { incrementoPosicionX = 1; numeroFramey = 0; }
 			}
 			else { posicionX = posicionX + incrementoPosicionX * velocidadX; }
 		}
