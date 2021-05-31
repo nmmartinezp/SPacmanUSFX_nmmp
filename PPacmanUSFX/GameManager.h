@@ -27,7 +27,7 @@ const int SCREEN_WIDTH = 500;
 const int SCREEN_HEIGHT = 480;
 
 enum Options {
-    MENU = 0,
+    MENU,
     MAP,
     PAUSE,
     GO
