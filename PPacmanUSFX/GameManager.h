@@ -17,6 +17,7 @@
 #include "CommonGameProperties.h"
 #include "Texture.h"
 #include "MapGenerator.h"
+#include "MenuGenerator.h"
 #include "MenuComponents.h"
 
 using namespace std;
@@ -25,11 +26,18 @@ using namespace std;
 const int SCREEN_WIDTH = 500;
 const int SCREEN_HEIGHT = 480;
 
+enum Options {
+    MENU = 0,
+    MAP,
+    PAUSE,
+    GO
+};
+
 class GameManager
 {
 private:
     bool juego_en_ejecucion;
-    int option, menu, Map, pause, go;
+    int option;
     //The window we'll be rendering to
     SDL_Window* gWindow;
     //The window renderer
@@ -37,17 +45,12 @@ private:
     //The surface contained by the window
     SDL_Surface* gScreenSurface;
 
-    Texture* titleTexture;
-    Texture* logoTexture;
-    Texture* botonTexture;
-    Texture* pauseTexture;
-    Texture* barraTexture;
-
     Mix_Music* MenuMusic;
 public:
-    MenuComponents* MenuComponent[5];
+    MenuGenerator* Lobby;
     MapGenerator* LevelGameGernerator;
     vector<CommonGameProperties*> actores;
+    vector<MenuComponents*> obs;
 public:
     GameManager();
     int onExecute();

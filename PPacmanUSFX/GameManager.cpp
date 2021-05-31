@@ -3,11 +3,7 @@
 using namespace std;
 
 GameManager::GameManager() {
-	menu = 0;
-	option = menu;
-	Map = 1;
-	pause = 2;
-	go = 3;
+	option = MENU;
 	gWindow = nullptr;
 	gRenderer = nullptr;
 	gScreenSurface = nullptr;
@@ -21,28 +17,26 @@ int GameManager::onExecute() {
         return -1;
     }
 	srand(time(NULL));
-	
-	MenuComponent[0] = new MenuComponents(titleTexture, 50, 100, 400, 100, SCREEN_WIDTH, SCREEN_HEIGHT);
-	MenuComponent[1] = new MenuComponents(logoTexture, 225, 210, 50, 50, SCREEN_WIDTH, SCREEN_HEIGHT);
-	MenuComponent[2] = new MenuComponents(botonTexture, 175, 270, 150, 70, SCREEN_WIDTH, SCREEN_HEIGHT);
-	MenuComponent[3] = new MenuComponents(barraTexture, 0, 450, 500, 30, SCREEN_WIDTH, SCREEN_HEIGHT);
-	MenuComponent[4] = new MenuComponents(pauseTexture, 125, 200, 250, 80, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	playsound();
     SDL_Event Event;
+
+	Lobby = new MenuGenerator(SCREEN_WIDTH, SCREEN_HEIGHT);
+	Lobby->load();
+	Lobby->Pop(obs);
 
     while (juego_en_ejecucion) {
         while (SDL_PollEvent(&Event)) {
             onEvent(&Event);
 			optionSelect(Event);
-			if (option == Map || option == go) {
+			if (option == MAP || option == GO) {
 				for (int i = 0; i < actores.size(); i++) {
 					actores[i]->handleEvent(Event);
 				}
 			}
         }
 		
-		if (option == Map || option == go) {
+		if (option == MAP || option == GO) {
 			for (int i = 0; i < actores.size(); i++) {
 				actores[i]->move();
 				actores[i]->mostrar();
@@ -104,17 +98,6 @@ bool GameManager::onInit() {
 		}
 
 		Texture::renderer = gRenderer;
-		
-		titleTexture = new Texture();
-		titleTexture->loadFromImage("Resources/title2.png");
-		logoTexture = new Texture();
-		logoTexture->loadFromImage("Resources/fantasma01_v1.png");
-		botonTexture = new Texture();
-		botonTexture->loadFromImage("Resources/start_neon1.png");
-		pauseTexture = new Texture();
-		pauseTexture->loadFromImage("Resources/pause_neon2.png");
-		barraTexture = new Texture();
-		barraTexture->loadFromImage("Resources/barra_menu.png");
 	}
 	
 	return success;
@@ -133,7 +116,7 @@ bool GameManager::playsound() {
 }
 
 void GameManager::stopsound() {
-	if (option != menu) {
+	if (option != MENU) {
 		Mix_HaltMusic();
 		Mix_FreeMusic(MenuMusic);
 		MenuMusic = nullptr;
@@ -148,26 +131,26 @@ void GameManager::onEvent(SDL_Event* Event) {
 
 void GameManager::onRender() {
 	
-	if (option == menu) {
-		for (int i = 0; i < 4; i++) {
-			MenuComponent[i]->render();
+	if (option == MENU) {
+		for (int i = 0; i < obs.size()-1; i++) {
+			obs[i]->render();
 		}
 	}
 
-	if (option == Map || option == go) {
+	if (option == MAP || option == GO) {
 		for (int i = 0; i < actores.size(); i++) {
 			actores[i]->update();
 			actores[i]->render();
 		}
 	}
 
-	if (option == pause) {
+	if (option == PAUSE) {
 		
 		for (int i = 0; i < actores.size(); i++) {
 			actores[i]->update();
 			actores[i]->render();
 		}
-		MenuComponent[4]->render();
+		obs[4]->render();
 	}
 };
 
@@ -180,29 +163,29 @@ void GameManager::optionSelect(SDL_Event& e)
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_RETURN:
-			if (option == menu) {
-				option = Map;
+			if (option == MENU) {
+				option = MAP;
 				brYdr();
 			}
 			break;
 		case SDLK_ESCAPE:
-			if (option == Map || option == pause || option == go) {
+			if (option == MAP || option == PAUSE || option == GO) {
 				playsound();
-				option = menu;
+				option = MENU;
 				brYdr();
 				break;
 			}
-			if (option == menu) {
+			if (option == MENU) {
 				onCleanup();
 			}
 		case SDLK_SPACE:
-			if (option == Map || option == go) {
-				option = pause;
+			if (option == MAP || option == GO) {
+				option = PAUSE;
 				brYdr();
 				break;
 			}
-			if (option == pause) {
-				option = go;
+			if (option == PAUSE) {
+				option = GO;
 				brYdr();
 				break;
 			}
@@ -211,13 +194,13 @@ void GameManager::optionSelect(SDL_Event& e)
 }
 
 void GameManager::brYdr() {
-	if (option == Map) {
+	if (option == MAP) {
 		LevelGameGernerator = new MapGenerator(SCREEN_WIDTH, SCREEN_HEIGHT - 30);
 		LevelGameGernerator->load("Resources/mapa.txt");
 		LevelGameGernerator->populate(actores);
 	}
 
-	if (option == menu) {
+	if (option == MENU) {
 		for (int i = 0; i < actores.size(); i++) {
 			actores[i]->~CommonGameProperties();
 		}
