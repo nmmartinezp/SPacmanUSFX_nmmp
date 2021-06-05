@@ -17,10 +17,10 @@ MenuGenerator::MenuGenerator(int _anchoPantalla, int _altoPantalla){
 }
 
 void MenuGenerator::load(){
-	MenuComponent[0] = new MenuComponents(titleTexture, 50, 100, 400, 100, anchoPantalla, altoPantalla);
-	MenuComponent[1] = new MenuComponents(logoTexture, 225, 210, 50, 50, anchoPantalla, altoPantalla);
-	MenuComponent[2] = new MenuComponents(bottonTexture, 175, 270, 150, 70, anchoPantalla, altoPantalla);
-	MenuComponent[3] = new MenuComponents(barraTexture, 0, 450, 500, 30, anchoPantalla, altoPantalla);
+	MenuComponent[0] = new MenuComponents(titleTexture, 333, 100, 700, 200, anchoPantalla, altoPantalla);
+	MenuComponent[1] = new MenuComponents(logoTexture, 633, 310, 100, 100, anchoPantalla, altoPantalla);
+	MenuComponent[2] = new MenuComponents(bottonTexture, 578, 450, 210, 110, anchoPantalla, altoPantalla);
+	MenuComponent[3] = new MenuComponents(barraTexture, 0, 698, 850, 70, anchoPantalla, altoPantalla);
 	MenuComponent[4] = new MenuComponents(pauseTexture, 125, 200, 250, 80, anchoPantalla, altoPantalla);
 
 	for (int i=0 ; i < 5; i++) {

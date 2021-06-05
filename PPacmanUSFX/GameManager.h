@@ -23,8 +23,8 @@
 using namespace std;
 
 //Screen dimension constants
-const int SCREEN_WIDTH = 500;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 1366;
+const int SCREEN_HEIGHT = 768;
 
 enum Options {
     MENU,
