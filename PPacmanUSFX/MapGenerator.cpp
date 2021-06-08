@@ -65,55 +65,55 @@ bool MapGenerator::load(string path)
 			{
 
 			case 'p':
-				newObject = new Pacman(pacmanTexture, x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla, 5);
+				newObject = new Pacman(pacmanTexture, x * 40, y * 30, 40, 30, anchoPantalla, altoPantalla, 5);
 				newObject->setParametrosAnimacion(6);
 				break;
 			case 'b':
-				newObject = new Fantasma(fantasma1Texture, x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla, 3);
+				newObject = new Fantasma(fantasma1Texture, x * 40, y * 30, 40, 30, anchoPantalla, altoPantalla, 3);
 				newObject->setParametrosAnimacion(4);
 				break;
 			case 'c':
-				newObject = new Fantasma(fantasma2Texture, x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla, 3);
+				newObject = new Fantasma(fantasma2Texture, x * 40, y * 30, 40, 30, anchoPantalla, altoPantalla, 3);
 				newObject->setParametrosAnimacion(4);
 				break;
 			case 'd':
-				newObject = new Fantasma(fantasma3Texture, x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla, 3);
+				newObject = new Fantasma(fantasma3Texture, x * 40, y * 30, 40, 30, anchoPantalla, altoPantalla, 3);
 				newObject->setParametrosAnimacion(4);
 				break;
 			case 'e':
-				newObject = new Fantasma(fantasma4Texture, x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla, 3);
+				newObject = new Fantasma(fantasma4Texture, x * 40, y * 30, 40, 30, anchoPantalla, altoPantalla, 3);
 				newObject->setParametrosAnimacion(4);
 				break;
 			case 'f':
-				newObject = new Fruta(frutasTextures, x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla);
+				newObject = new Fruta(frutasTextures, x * 40, y * 30, 40, 30, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(4);
 				break;
 			case 'q':
-				newObject = new Wall(wallTexture, x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla);
+				newObject = new Wall(wallTexture, x * 40, y * 30, 40, 30, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(0);
 				break;
 			case 'x':
-				newObject = new Wall(wallTexture2, x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla);
+				newObject = new Wall(wallTexture, x * 40, y * 30, 40, 30, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(0);
 				break;
 			case 'y':
-				newObject = new Wall(wallTexture3, x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla);
+				newObject = new Wall(wallTexture, x * 40, y * 30, 40, 30, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(0);
 				break;
 			case 'w':
-				newObject = new Wall(wallTexture4, x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla);
+				newObject = new Wall(wallTexture, x * 40, y * 30, 40, 30, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(0);
 				break;
 			case 'z':
-				newObject = new Wall(wallTexture5, x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla);
+				newObject = new Wall(wallTexture, x * 40, y * 30, 40, 30, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(0);
 				break;
 			case 'v':
-				newObject = new Wall(wallTexture6, x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla);
+				newObject = new Wall(wallTexture, x * 40, y * 30, 40, 30, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(0);
 				break;
 			case 'm':
-				newObject = new Coin(coinTexture, x * 40, y * 40, 40, 40, anchoPantalla, altoPantalla);
+				newObject = new Coin(coinTexture, x * 40, y * 30, 40, 30, anchoPantalla, altoPantalla);
 				newObject->setParametrosAnimacion(10);
 				break;
 			case 'k':
